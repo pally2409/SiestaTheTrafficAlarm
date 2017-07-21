@@ -27,6 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        let storyboard = UIStoryboard(name: "ListAlarmsTableViewController", bundle: .main)
+         if let initialViewController = storyboard.instantiateInitialViewController() {
+            window?.rootViewController = initialViewController
+            window?.makeKeyAndVisible()
+        }
+        
+        return true
+        
         // Override point for customization after application launch.
         GMSPlacesClient.provideAPIKey("AIzaSyB6XJH5i52THSBY5kaTLNCiTWelK_KGsmQ")
         locationManager = CLLocationManager()

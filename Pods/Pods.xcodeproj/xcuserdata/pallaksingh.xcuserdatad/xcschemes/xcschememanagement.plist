@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>KNSwitcher.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Siesta-UserBuild.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>64D0943C39A72510E5F31F6B934AE3CF</key>
+		<key>E1A5206AFF01BBB48AD1437DBB834F0D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>65C7F35540370CDF60E068887F68D78D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DB2B9BF9FA91B2AFB1B71CB507F4F4A2</key>
+		<key>EB312FDBECB90A1C5BCDC5E7DA631C9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

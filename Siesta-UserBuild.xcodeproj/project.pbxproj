@@ -23,6 +23,9 @@
 		A77CA0C21F1EC2B100409D34 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0C11F1EC2B100409D34 /* LocationService.swift */; };
 		A77CA0C41F211CF100409D34 /* TimeCalculationsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0C31F211CF100409D34 /* TimeCalculationsHelper.swift */; };
 		A77CA0C71F22704600409D34 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0C61F22704600409D34 /* NotificationHelper.swift */; };
+		A77CA0CA1F22981E00409D34 /* ListAlarmsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77CA0C91F22981E00409D34 /* ListAlarmsTableViewController.storyboard */; };
+		A77CA0CC1F22989200409D34 /* ListAlarmsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0CB1F22989200409D34 /* ListAlarmsTableViewController.swift */; };
+		A77CA0D01F229CE600409D34 /* ListAlarmsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0CF1F229CE600409D34 /* ListAlarmsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		A77CA0C11F1EC2B100409D34 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		A77CA0C31F211CF100409D34 /* TimeCalculationsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCalculationsHelper.swift; sourceTree = "<group>"; };
 		A77CA0C61F22704600409D34 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
+		A77CA0C91F22981E00409D34 /* ListAlarmsTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListAlarmsTableViewController.storyboard; sourceTree = "<group>"; };
+		A77CA0CB1F22989200409D34 /* ListAlarmsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAlarmsTableViewController.swift; sourceTree = "<group>"; };
+		A77CA0CF1F229CE600409D34 /* ListAlarmsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAlarmsTableViewCell.swift; sourceTree = "<group>"; };
 		F2E18BC077F9AEED1F710FD0 /* Pods-Siesta-UserBuild.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Siesta-UserBuild.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Siesta-UserBuild/Pods-Siesta-UserBuild.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +96,7 @@
 		A77CA09A1F1D162B00409D34 /* Siesta-UserBuild */ = {
 			isa = PBXGroup;
 			children = (
+				A77CA0CE1F229CC000409D34 /* Views */,
 				A77CA09B1F1D162B00409D34 /* AppDelegate.swift */,
 				A77CA0B81F1E87B300409D34 /* View Controllers */,
 				A77CA0B91F1E87C700409D34 /* Stroyboards */,
@@ -109,6 +116,7 @@
 				A77CA0AD1F1D19AF00409D34 /* SetAlarmViewController.swift */,
 				A77CA0B61F1D53CB00409D34 /* LocationSettingsViewController.swift */,
 				A77CA0BF1F1E887B00409D34 /* TrafficDataViewController.swift */,
+				A77CA0CB1F22989200409D34 /* ListAlarmsTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -119,6 +127,7 @@
 				A77CA09F1F1D162B00409D34 /* Main.storyboard */,
 				A77CA0B31F1D382100409D34 /* LocationSettings.storyboard */,
 				A77CA0BC1F1E886400409D34 /* TrafficData.storyboard */,
+				A77CA0C91F22981E00409D34 /* ListAlarmsTableViewController.storyboard */,
 				A77CA0A41F1D162B00409D34 /* LaunchScreen.storyboard */,
 			);
 			name = Stroyboards;
@@ -148,6 +157,14 @@
 				A77CA0C61F22704600409D34 /* NotificationHelper.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		A77CA0CE1F229CC000409D34 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A77CA0CF1F229CE600409D34 /* ListAlarmsTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		E5A7B3AEC4298F0138BA18AF /* Frameworks */ = {
@@ -226,6 +243,7 @@
 				A77CA0A31F1D162B00409D34 /* Assets.xcassets in Resources */,
 				A77CA0B21F1D231A00409D34 /* venus-isle-30.wav in Resources */,
 				A77CA0B51F1D382100409D34 /* LocationSettings.storyboard in Resources */,
+				A77CA0CA1F22981E00409D34 /* ListAlarmsTableViewController.storyboard in Resources */,
 				A77CA0A11F1D162B00409D34 /* Main.storyboard in Resources */,
 				A77CA0BE1F1E886400409D34 /* TrafficData.storyboard in Resources */,
 			);
@@ -288,8 +306,10 @@
 			files = (
 				A77CA0B71F1D53CB00409D34 /* LocationSettingsViewController.swift in Sources */,
 				A77CA0AE1F1D19AF00409D34 /* SetAlarmViewController.swift in Sources */,
+				A77CA0CC1F22989200409D34 /* ListAlarmsTableViewController.swift in Sources */,
 				A77CA0C71F22704600409D34 /* NotificationHelper.swift in Sources */,
 				A77CA0C41F211CF100409D34 /* TimeCalculationsHelper.swift in Sources */,
+				A77CA0D01F229CE600409D34 /* ListAlarmsTableViewCell.swift in Sources */,
 				A77CA09E1F1D162B00409D34 /* ViewController.swift in Sources */,
 				A77CA0C01F1E887B00409D34 /* TrafficDataViewController.swift in Sources */,
 				A77CA0C21F1EC2B100409D34 /* LocationService.swift in Sources */,

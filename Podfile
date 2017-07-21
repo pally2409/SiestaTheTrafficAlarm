@@ -9,7 +9,6 @@ target 'Siesta-UserBuild' do
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
-  pod 'KNSwitcher'
   pod 'SwiftyJSON', '3.0.0'
 
 
