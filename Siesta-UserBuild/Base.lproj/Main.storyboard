@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Set Alarm View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="SetAlarmViewController" customModule="Siesta_UserBuild" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gxe-wl-Qru">
+                                <rect key="frame" x="28" y="81" width="320" height="503"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set an interval for your alarm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdL-sG-E1K">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="QTM-mg-N7e">
+                                        <rect key="frame" x="0.0" y="20.5" width="320" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="522000215.47776401">
+                                            <!--2017-07-17 16:03:35 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtP-de-pbQ">
+                                        <rect key="frame" x="0.0" y="236.5" width="320" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3Hy-vo-HbC">
+                                        <rect key="frame" x="0.0" y="257" width="320" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="522000215.47776401">
+                                            <!--2017-07-17 16:03:35 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0P-hE-Zyo">
+                                        <rect key="frame" x="0.0" y="473" width="320" height="30"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GFW-pX-nzs"/>
+                                            <segue destination="zU4-E7-xVz" kind="show" id="QTd-7E-zHh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VdL-sG-E1K" firstAttribute="centerX" secondItem="gxe-wl-Qru" secondAttribute="centerX" id="X6l-lD-U6c"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gxe-wl-Qru" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="61" id="Kk5-ML-bIQ"/>
+                            <constraint firstItem="gxe-wl-Qru" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X5u-mk-qDV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fromAlarmTime" destination="QTM-mg-N7e" id="fp1-nM-hf2"/>
+                        <outlet property="toAlarmTime" destination="3Hy-vo-HbC" id="QbF-NN-5Oc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+        <!--Set Alarm View Controller-->
+        <scene sceneID="o1b-Ap-yrl">
+            <objects>
+                <viewController id="zU4-E7-xVz" customClass="SetAlarmViewController" customModule="Siesta_UserBuild" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a2X-u8-hhh"/>
+                        <viewControllerLayoutGuide type="bottom" id="lUL-II-DgH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="na5-Gs-MJd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cDY-M0-9pX">
+                                <rect key="frame" x="28" y="50" width="320" height="567"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much time do you take to get ready?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdW-pY-QyK">
+                                        <rect key="frame" x="1.5" y="0.0" width="317.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ePx-tF-sHp">
+                                        <rect key="frame" x="0.0" y="36.5" width="320" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="522003902.97533202">
+                                            <!--2017-07-17 17:05:02 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What time do you have to reach office?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S32-mK-nYK">
+                                        <rect key="frame" x="11" y="268.5" width="298.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ro3-zE-zzF">
+                                        <rect key="frame" x="0.0" y="305" width="320" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="522003902.97533202">
+                                            <!--2017-07-17 17:05:02 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nO-Vj-CdN">
+                                        <rect key="frame" x="129" y="537" width="62" height="30"/>
+                                        <state key="normal" title="Continue"/>
+                                        <connections>
+                                            <action selector="continueButtonTapped:" destination="zU4-E7-xVz" eventType="touchUpInside" id="mK0-uv-eYg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cDY-M0-9pX" firstAttribute="centerX" secondItem="na5-Gs-MJd" secondAttribute="centerX" id="V8C-hp-1gM"/>
+                            <constraint firstItem="cDY-M0-9pX" firstAttribute="centerY" secondItem="na5-Gs-MJd" secondAttribute="centerY" id="h16-KS-lJO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="reachTime" destination="Ro3-zE-zzF" id="PpP-DC-ksj"/>
+                        <outlet property="readyTime" destination="ePx-tF-sHp" id="ANr-lx-Hdj"/>
+                        <segue destination="zQV-2H-MxR" kind="show" identifier="locationSettingsViewControllerSegue" id="erK-ah-DUD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WTD-6S-SXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.79999999999995" y="137.18140929535232"/>
+        </scene>
+        <!--LocationSettings-->
+        <scene sceneID="7Tk-hS-bqO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LocationSettings" id="zQV-2H-MxR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sCq-ah-89z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1721" y="137"/>
+        </scene>
+    </scenes>
+</document>

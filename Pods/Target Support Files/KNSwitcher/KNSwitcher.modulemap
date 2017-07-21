@@ -1,0 +1,6 @@
+framework module KNSwitcher {
+  umbrella header "KNSwitcher-umbrella.h"
+
+  export *
+  module * { export * }
+}
