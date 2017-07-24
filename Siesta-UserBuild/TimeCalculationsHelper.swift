@@ -14,7 +14,7 @@ struct TimeCalculationsHelper {
         let readyPlusTraffic = -1*(trafficDuration! + readyTime!)
         let wakeUpTime = calendar.date(byAdding: .second, value: Int(readyPlusTraffic), to: reachTime!)
         let wakeUpTimeComponents = calendar.dateComponents(in: .current, from: wakeUpTime!)
-        print("\(wakeUpTimeComponents.hour)! : \(wakeUpTimeComponents.minute)!")
+        print("\(wakeUpTimeComponents.hour!) : \(wakeUpTimeComponents.minute!)")
 
         
     }

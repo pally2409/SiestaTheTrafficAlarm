@@ -27,6 +27,13 @@ class TrafficDataViewController: UIViewController {
     var readyTime: TimeInterval?
     var reachTime: Date?
     var trafficDurationF: TimeInterval?
+    var fromAlarmTime: Date?
+    var toAlarmTime: Date?
+    
+    
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toListAlarms", sender: self)
+    }
     
     
     
@@ -52,18 +59,27 @@ class TrafficDataViewController: UIViewController {
     }
     
     func calculateWakeUpTime () {
-        print("ready time: \(readyTime)")
-        print("reach time: \(reachTime)")
-        print("traffic time \(trafficDurationF)")
-        
-//        let calendar = Calendar.current
-//        let readyPlusTraffic = -1*(trafficDurationF! + readyTime!)
-//        let wakeUpTime = calendar.date(byAdding: .second, value: Int(readyPlusTraffic), to: reachTime!)
-//        let wakeUpTimeComponents = calendar.dateComponents(in: .current, from: wakeUpTime!)
-//        print("\(wakeUpTimeComponents.hour)! : \(wakeUpTimeComponents.minute)!")
+        print("ready time: \(readyTime!)")
+        print("reach time: \(reachTime!)")
+        print("traffic time \(trafficDurationF!)")
         
         TimeCalculationsHelper.calculateWakeUpTime(readyTime, trafficDurationF, reachTime)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toListAlarms" {
+            let calendar = Calendar.current
+            let fromIntervalComponents = calendar.dateComponents(in: .current, from: fromAlarmTime!)
+            let fromIntervalString = "\(fromIntervalComponents.hour!) : \(fromIntervalComponents.minute!)"
+            let toIntervalComponents = calendar.dateComponents(in: .current, from: toAlarmTime!)
+            let toIntervalString = "\(toIntervalComponents.hour!) : \(toIntervalComponents.minute!)"
+            let reachTimeComponents = calendar.dateComponents(in: .current, from: reachTime!)
+            let reachTimeString = "\(reachTimeComponents.hour!) : \(reachTimeComponents.minute!)"
+            let destinationVC = segue.destination as! ListAlarmsTableViewController
+            let newAlarm = Alarm(fromInterval: fromIntervalString, toInterval: toIntervalString, origin: origin, destination: destination, isOn: true, readyTime: readyTime!, reachTime: reachTimeString)
+            destinationVC.alarms.append(newAlarm)
+        }
     }
     
   

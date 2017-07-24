@@ -25,6 +25,10 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
     let autocompleteControllerDestination = GMSAutocompleteViewController()
     var readyTime: TimeInterval?
     var reachTime: Date?
+    var fromAlarmTime: Date?
+    var toAlarmTime: Date?
+    
+    
 
     
     
@@ -131,6 +135,8 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
             
             DestViewController.readyTime = self.readyTime!
             DestViewController.reachTime = self.reachTime!
+            DestViewController.fromAlarmTime = self.fromAlarmTime!
+            DestViewController.toAlarmTime = self.toAlarmTime!
             
         }
     }
@@ -199,8 +205,8 @@ extension LocationSettingsViewController: GMSAutocompleteViewControllerDelegate 
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
+        print("Place address: \(place.formattedAddress)!")
+        print("Place attributions: \(place.attributions)!")
         dismiss(animated: true, completion: nil)
         
         if viewController == autocompleteControllerOrigin {

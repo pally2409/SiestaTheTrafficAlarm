@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9cT-1m-dqm">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--A L A R M S-->
+        <scene sceneID="Ku6-DS-rEH">
+            <objects>
+                <tableViewController id="ZUM-nL-TEH" customClass="ListAlarmsTableViewController" customModule="Siesta_UserBuild" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="r11-ro-Sw3">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="alG-v2-Oo6">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A L A R M S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nm-kb-86z">
+                                    <rect key="frame" x="143" y="8" width="90" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstItem="4Nm-kb-86z" firstAttribute="top" secondItem="alG-v2-Oo6" secondAttribute="top" constant="8" id="7JA-ch-Xy4"/>
+                                <constraint firstItem="4Nm-kb-86z" firstAttribute="centerX" secondItem="alG-v2-Oo6" secondAttribute="centerX" id="pPC-5X-Icn"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listAlarmsTableViewCell" rowHeight="104" id="X5T-Ti-hk8" customClass="ListAlarmsTableViewCell" customModule="Siesta_UserBuild" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="104"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="X5T-Ti-hk8" id="Uuh-En-DRr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="103.66666666666667"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alarm-icon-8132" translatesAutoresizingMaskIntoConstraints="NO" id="mOK-EP-Tne">
+                                            <rect key="frame" x="18" y="49" width="43" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TO: 655 LISBON ST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-qf-Ppj">
+                                            <rect key="frame" x="69" y="66" width="104" height="13"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FROM: 1547 MISSION ST " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrA-IK-imL">
+                                            <rect key="frame" x="69" y="53" width="135" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="GMSNavNightModeSprites-0-1x.png" translatesAutoresizingMaskIntoConstraints="NO" id="ETR-AS-SIo">
+                                            <rect key="frame" x="309" y="36" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                            <connections>
+                                                <action selector="alarmSwitchTapped:" destination="X5T-Ti-hk8" eventType="valueChanged" id="Bnk-f3-VnX"/>
+                                            </connections>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="12:00 - 1:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCm-sg-ZMn">
+                                            <rect key="frame" x="18" y="9" width="573" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="573" id="Cvh-JC-idC"/>
+                                                <constraint firstAttribute="height" constant="44.5" id="mhz-RS-tbS"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="gCm-sg-ZMn" secondAttribute="trailing" constant="76" id="53I-lk-H8v"/>
+                                        <constraint firstItem="gCm-sg-ZMn" firstAttribute="leading" secondItem="Uuh-En-DRr" secondAttribute="leading" constant="18" id="LpY-MX-ENZ"/>
+                                        <constraint firstItem="gCm-sg-ZMn" firstAttribute="top" secondItem="Uuh-En-DRr" secondAttribute="top" constant="9" id="Whj-vA-Sp5"/>
+                                        <constraint firstItem="gCm-sg-ZMn" firstAttribute="top" secondItem="Uuh-En-DRr" secondAttribute="top" constant="9" id="dDn-gH-a9Y"/>
+                                        <constraint firstItem="gCm-sg-ZMn" firstAttribute="leading" secondItem="Uuh-En-DRr" secondAttribute="leading" constant="18" id="fb2-hk-OyH"/>
+                                        <constraint firstItem="gCm-sg-ZMn" firstAttribute="top" secondItem="Uuh-En-DRr" secondAttribute="top" constant="9" id="gPY-bF-Cmc"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="alarmDestination" destination="5LG-qf-Ppj" id="0Wn-7p-vQ8"/>
+                                    <outlet property="alarmOrigin" destination="hrA-IK-imL" id="eJV-Qd-629"/>
+                                    <outlet property="alarmSwitch" destination="ETR-AS-SIo" id="aCS-ca-ekl"/>
+                                    <outlet property="alarmTimeLabel" destination="gCm-sg-ZMn" id="Jm4-B8-xUA"/>
+                                    <segue destination="rLs-Zz-KxC" kind="show" identifier="displayAlarmFromListSegue" id="f5z-yV-7KJ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ZUM-nL-TEH" id="GBX-o2-2dW"/>
+                            <outlet property="delegate" destination="ZUM-nL-TEH" id="osY-Tm-XMX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="A L A R M S" id="FAe-cW-QOx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="d9b-6T-Fsa">
+                            <color key="tintColor" red="0.97647058819999999" green="0.57647058819999997" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="D4c-Zu-1go" kind="show" id="LnA-Ej-PWn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gzj-vf-Xgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1186" y="161"/>
+        </scene>
+        <!--DisplayAlarm-->
+        <scene sceneID="Vgc-Gp-BW4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DisplayAlarm" id="rLs-Zz-KxC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eon-bg-Twf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1996" y="170"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="Phy-rs-DFY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="D4c-Zu-1go" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="af1-1E-TcU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1806" y="-343"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5KU-5v-S3c">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9cT-1m-dqm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="cQy-Ue-6C3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                            <color key="textColor" red="0.99519230769230771" green="0.99038461538461542" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textShadowColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="jkF-R9-wnu">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="ZUM-nL-TEH" kind="relationship" relationship="rootViewController" id="lCU-e6-LKB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zcq-xl-A3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="309.60000000000002" y="155.17241379310346"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="GMSNavNightModeSprites-0-1x.png" width="128" height="142"/>
+        <image name="alarm-icon-8132" width="256" height="232"/>
+    </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+</document>

@@ -45,6 +45,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwi-38-aFG">
+                                <rect key="frame" x="164" y="467" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="SrA-PS-tIR" eventType="touchUpInside" id="5jk-tR-viK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -64,11 +72,20 @@
                         <outlet property="distanceTextLabel" destination="Dmr-Rh-Wje" id="SRi-Hh-Fdf"/>
                         <outlet property="estTextLabel" destination="7LN-pH-KR4" id="mgw-Lh-LWH"/>
                         <outlet property="estTimeTextLabel" destination="t68-7x-cud" id="Uxv-FN-UgM"/>
+                        <segue destination="AGu-YM-C0O" kind="show" identifier="displayAlarmSegue" id="UNb-q1-Szs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQl-4c-9Kk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2500" y="136"/>
+        </scene>
+        <!--DisplayAlarm-->
+        <scene sceneID="zYa-Te-dMi">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGg-oM-ToE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="DisplayAlarm" id="AGu-YM-C0O" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="3078" y="201"/>
         </scene>
     </scenes>
 </document>

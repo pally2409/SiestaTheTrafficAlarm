@@ -13,7 +13,14 @@ class ListAlarmsTableViewCell: UITableViewCell {
     @IBOutlet weak var alarmTimeLabel: UILabel!
     @IBOutlet weak var alarmSwitch: UISwitch!
     
+    @IBOutlet weak var alarmOrigin: UILabel!
+    @IBOutlet weak var alarmDestination: UILabel!
     
+    @IBAction func alarmSwitchTapped(_ sender: Any) {
+        
+        
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -9,6 +9,34 @@
 import UIKit
 
 class ListAlarmsTableViewController: UITableViewController {
+    
+    var alarms = [Alarm]() {
+    didSet {
+        tableView.reloadData()
+    }
+    
+    }
+    @IBAction func unwindToListNotesViewController(_ segue: UIStoryboardSegue) {
+        
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "displayAlarmFromListSegue" {
+                print("Table view cell tapped")
+                let indexPath = tableView.indexPathForSelectedRow!
+                let alarm = alarms[indexPath.row]
+                let destinationVC = segue.destination as! DisplayAlarmViewController
+                destinationVC.alarm = alarm
+                
+                
+            }
+                
+            }
+        }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +46,14 @@ class ListAlarmsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        let logo = UIImage(named: "Group 4.png")
+        let imageView = UIImageView(image: logo)
+        imageView.contentMode = .scaleAspectFit // set imageview's content mode
+        self.navigationItem.titleView = imageView
+        UIApplication.shared.statusBarStyle = .lightContent
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,18 +69,28 @@ class ListAlarmsTableViewController: UITableViewController {
 //    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 10
+        
+        return alarms.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listAlarmsTableViewCell", for: indexPath) as! ListAlarmsTableViewCell
         // Configure the cell...
-        cell.alarmTimeLabel.text? = "8:00"
-        cell.alarmSwitch.isEnabled = false
+        let row = indexPath.row
+        let alarm = alarms[row]
+        let calendar = Calendar.current
+        let componentsFromAlarmTime = calendar.dateComponents(in: .current, from: alarm.fromInterval)
+        let componentsToAlarmTime = calendar.dateComponents(in: .current, from: alarm.toInterval)
+        cell.alarmTimeLabel.text = "\(componentsFromAlarmTime.hour!) : \(componentsFromAlarmTime.minute!) -  \(componentsToAlarmTime.hour!) : \(componentsToAlarmTime.minute!)"
+        cell.alarmOrigin.text = alarm.origin
+        cell.alarmDestination.text = alarm.destination
+        alarm.isOn = cell.alarmSwitch.isOn
         return cell
+        
     }
+    
+    
     
 
     /*
