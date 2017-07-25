@@ -16,8 +16,8 @@ class ListAlarmsTableViewController: UITableViewController {
     }
     
     }
-    @IBAction func unwindToListNotesViewController(_ segue: UIStoryboardSegue) {
-        
+    @IBAction func unwindToListAlarmsViewController(_ segue: UIStoryboardSegue) {
+        self.alarms = CoreDataHelper.retrieveAlarms()
         
     }
     
@@ -46,6 +46,7 @@ class ListAlarmsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        alarms = CoreDataHelper.retrieveAlarms()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         let logo = UIImage(named: "Group 4.png")
@@ -68,6 +69,17 @@ class ListAlarmsTableViewController: UITableViewController {
 //        return 0
 //    }
 
+    
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
+        if editingStyle == .delete {
+            CoreDataHelper.delete(alarm: alarms[indexPath.row])
+            alarms = CoreDataHelper.retrieveAlarms()
+            
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return alarms.count
@@ -80,8 +92,9 @@ class ListAlarmsTableViewController: UITableViewController {
         let row = indexPath.row
         let alarm = alarms[row]
         let calendar = Calendar.current
-        let componentsFromAlarmTime = calendar.dateComponents(in: .current, from: alarm.fromInterval)
-        let componentsToAlarmTime = calendar.dateComponents(in: .current, from: alarm.toInterval)
+        let componentsFromAlarmTime = calendar.dateComponents(in: .current, from: alarm.fromInterval! as Date)
+        let componentsToAlarmTime = calendar.dateComponents(in: .current, from: alarm.toInterval! as Date)
+        
         cell.alarmTimeLabel.text = "\(componentsFromAlarmTime.hour!) : \(componentsFromAlarmTime.minute!) -  \(componentsToAlarmTime.hour!) : \(componentsToAlarmTime.minute!)"
         cell.alarmOrigin.text = alarm.origin
         cell.alarmDestination.text = alarm.destination

@@ -35,26 +35,27 @@ class DisplayAlarmViewController: UIViewController {
     
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! ListAlarmsTableViewController
         if segue.identifier == "save" {
-            if let alarm = alarm {
+            
+            let alarm = self.alarm!
                 alarm.origin = alarmOriginTextField.text!
                 alarm.destination = alarmDestinationTextField.text!
-                alarm.readyTime = TimeInterval(readyTimeTextField.text!)!
+                
+//                let readyTimeCast = NSDate(timeIntervalSince1970: Double(readyTimeTextField.text!)!)
                 let formatter = DateFormatter()
                 formatter.dateFormat = "HH:mm"
+//                let readyTimeString = formatter.string(from: readyTimeCast as Date)
+                let readyTimeDate = formatter.date(from: readyTimeTextField.text!)
+                alarm.readyTime = readyTimeDate! as NSDate
                 let reachTimeString = formatter.date(from: reachTimeTextField.text!)
-                alarm.reachTime = reachTimeString!
+                alarm.reachTime = reachTimeString! as NSDate
                 let fromIntervalString = formatter.date(from: fromIntervalLabel.text!)
                 let toIntervalString = formatter.date(from: toIntervalLabel.text!)
-                alarm.fromInterval = fromIntervalString!
-                alarm.toInterval = toIntervalString!
-                destinationVC.tableView.reloadData()
-            } else {
-            
-            
+                alarm.fromInterval = fromIntervalString! as NSDate
+                alarm.toInterval = toIntervalString! as NSDate
+                alarm.isOn = false
         }
-      }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,11 +63,13 @@ class DisplayAlarmViewController: UIViewController {
         if let alarm = alarm {
             alarmOriginTextField.text = alarm.origin
             alarmDestinationTextField.text = alarm.destination
-            readyTimeTextField.text = String(alarm.readyTime)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm"
+            readyTimeTextField.text = formatter.string(from: alarm.readyTime! as Date)
             let calendar = Calendar.current
-            let componentsReachTime = calendar.dateComponents(in: .current, from: alarm.reachTime)
-            let componentsFromAlarmTime = calendar.dateComponents(in: .current, from: alarm.fromInterval)
-            let componentsToAlarmTime = calendar.dateComponents(in: .current, from: alarm.toInterval)
+            let componentsReachTime = calendar.dateComponents(in: .current, from: alarm.reachTime! as Date)
+            let componentsFromAlarmTime = calendar.dateComponents(in: .current, from: alarm.fromInterval! as Date)
+            let componentsToAlarmTime = calendar.dateComponents(in: .current, from: alarm.toInterval! as Date)
             reachTimeTextField.text = "\(componentsReachTime.hour!) : \(componentsReachTime.minute!)"
             fromIntervalLabel.text = "\(componentsFromAlarmTime.hour!):\(componentsFromAlarmTime.minute!)"
             toIntervalLabel.text = "\(componentsToAlarmTime.hour!):\(componentsToAlarmTime.minute!)"

@@ -69,6 +69,8 @@ class TrafficDataViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toListAlarms" {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH : mm"
             let calendar = Calendar.current
             let fromIntervalComponents = calendar.dateComponents(in: .current, from: fromAlarmTime!)
             let fromIntervalString = "\(fromIntervalComponents.hour!) : \(fromIntervalComponents.minute!)"
@@ -76,9 +78,18 @@ class TrafficDataViewController: UIViewController {
             let toIntervalString = "\(toIntervalComponents.hour!) : \(toIntervalComponents.minute!)"
             let reachTimeComponents = calendar.dateComponents(in: .current, from: reachTime!)
             let reachTimeString = "\(reachTimeComponents.hour!) : \(reachTimeComponents.minute!)"
-            let destinationVC = segue.destination as! ListAlarmsTableViewController
-            let newAlarm = Alarm(fromInterval: fromIntervalString, toInterval: toIntervalString, origin: origin, destination: destination, isOn: true, readyTime: readyTime!, reachTime: reachTimeString)
-            destinationVC.alarms.append(newAlarm)
+            let newAlarm = CoreDataHelper.newAlarm()
+            newAlarm.origin = origin
+            newAlarm.destination = destination
+            newAlarm.fromInterval = (formatter.date(from: fromIntervalString)! as NSDate)
+            newAlarm.toInterval = (formatter.date(from: toIntervalString)! as NSDate)
+            let readyTimeCast = NSDate(timeIntervalSince1970: readyTime!)
+            let readyTimeString = formatter.string(from: readyTimeCast as Date)
+            let readyTimeDate = formatter.date(from: readyTimeString)
+            newAlarm.readyTime = readyTimeDate! as NSDate
+            newAlarm.reachTime = (formatter.date(from: reachTimeString)! as NSDate)
+            newAlarm.isOn = false
+             CoreDataHelper.saveAlarm()
         }
     }
     

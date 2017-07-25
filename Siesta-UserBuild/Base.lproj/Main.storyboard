@@ -121,28 +121,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ilr-Gw-OOV">
-                                <rect key="frame" x="28" y="68.666666666666686" width="320" height="520.66666666666674"/>
+                                <rect key="frame" x="28" y="68" width="320" height="522"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much time do you take to get ready?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3k-nx-Fvu">
-                                        <rect key="frame" x="1.3333333333333428" y="0.0" width="317.66666666666663" height="20.333333333333329"/>
+                                        <rect key="frame" x="1" y="0.0" width="318" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="IfP-dH-O1O">
-                                        <rect key="frame" x="0.0" y="36.333333333333314" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="37" width="320" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="522003902.97533202">
                                             <!--2017-07-17 17:05:02 +0000-->
                                         </date>
                                     </datePicker>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What time do you have to reach office?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qL-Cg-nOk">
-                                        <rect key="frame" x="11" y="268.33333333333337" width="298.33333333333331" height="20.333333333333314"/>
+                                        <rect key="frame" x="11" y="269" width="299" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="XCQ-I9-Yxi">
-                                        <rect key="frame" x="0.0" y="304.66666666666663" width="320" height="216.00000000000011"/>
+                                        <rect key="frame" x="0.0" y="306" width="320" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="522003902.97533202">
                                             <!--2017-07-17 17:05:02 +0000-->
                                         </date>
@@ -330,7 +330,7 @@
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneButtonTapped:" destination="rwJ-xN-iEf" eventType="touchUpInside" id="HQE-CB-Cuv"/>
-                                    <segue destination="z0h-JX-bhj" kind="unwind" identifier="toListAlarms" unwindAction="unwindToListNotesViewController:" id="Wd3-eN-8ZK"/>
+                                    <segue destination="z0h-JX-bhj" kind="unwind" identifier="toListAlarms" unwindAction="unwindToListAlarmsViewController:" id="Wd3-eN-8ZK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -521,12 +521,12 @@
                     <navigationItem key="navigationItem" id="usE-fD-Oxl">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HJu-Oy-LF7">
                             <connections>
-                                <segue destination="unw-KK-gzb" kind="unwind" identifier="cancel" unwindAction="unwindToListNotesViewController:" id="3J7-NV-hOt"/>
+                                <segue destination="unw-KK-gzb" kind="unwind" identifier="cancel" unwindAction="unwindToListAlarmsViewController:" id="3J7-NV-hOt"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="lbW-fU-h0w">
                             <connections>
-                                <segue destination="unw-KK-gzb" kind="unwind" identifier="save" unwindAction="unwindToListNotesViewController:" id="3Lu-aS-0rV"/>
+                                <segue destination="unw-KK-gzb" kind="unwind" identifier="save" unwindAction="unwindToListAlarmsViewController:" id="3Lu-aS-0rV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -599,7 +599,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="zd5-1Y-dqF" id="3bK-UW-GvF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="103.66666666666667"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alarm-icon-8132" translatesAutoresizingMaskIntoConstraints="NO" id="hkW-9i-G1x">
@@ -682,7 +682,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="QvZ-BT-fIc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="QvZ-BT-fIc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

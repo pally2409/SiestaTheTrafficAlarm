@@ -28,7 +28,7 @@
 
 /* Begin PBXFileReference section */
 		05438453D9DABC05C1AABD3794A2A0A8 /* Pods-Siesta-UserBuild-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Siesta-UserBuild-resources.sh"; sourceTree = "<group>"; };
-		0546D70E855F22975D7A6EFFC66FCA65 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
+		0546D70E855F22975D7A6EFFC66FCA65 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
 		0FB8A9389A765687DC9EC7DABE2E6EFF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		154C47DCF9716E054E64492795D2D834 /* GooglePlacePicker.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlacePicker.bundle; path = Frameworks/GooglePlacePicker.framework/Versions/A/Resources/GooglePlacePicker.bundle; sourceTree = "<group>"; };
 		2EE027BFEF58692D2C8D3EF83214F286 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
@@ -45,16 +45,16 @@
 		81A97778C75B3E914FD1F520A762E2EA /* GooglePlacePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlacePicker.framework; path = Frameworks/GooglePlacePicker.framework; sourceTree = "<group>"; };
 		8B6F75F9ADC97AED796E417335151802 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
 		8FA0367B271B2C849283DB632EF921CE /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
-		91887A11B87196015094E12E9D4E2C41 /* Pods_Siesta_UserBuild.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Siesta_UserBuild.framework; path = "Pods-Siesta-UserBuild.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		91887A11B87196015094E12E9D4E2C41 /* Pods_Siesta_UserBuild.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Siesta_UserBuild.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A133AE978C90C473655667C233873302 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
 		A1BBEE5AF696129E212706E9878750D1 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
 		A52CD113A6991BDAD9B91B7693204425 /* Pods-Siesta-UserBuild-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Siesta-UserBuild-frameworks.sh"; sourceTree = "<group>"; };
 		A7E136484C14E655D1C9FF5E84C18D0F /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
 		AF717639608B5C3094E9F84DB7DBEC89 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
-		C68E2D1E7651C5CD71841C458FA5DBB3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C68E2D1E7651C5CD71841C458FA5DBB3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE193EA7A77F0E7968E8741F86165FC /* Pods-Siesta-UserBuild-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Siesta-UserBuild-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D464676A8A8108D5B9A95FDA6FC83552 /* Pods-Siesta-UserBuild.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Siesta-UserBuild.modulemap"; sourceTree = "<group>"; };
+		D464676A8A8108D5B9A95FDA6FC83552 /* Pods-Siesta-UserBuild.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Siesta-UserBuild.modulemap"; sourceTree = "<group>"; };
 		F8282395E42B978AEC17686B0532E4CC /* Pods-Siesta-UserBuild.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Siesta-UserBuild.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,7 +100,6 @@
 				77155931BFCA21C8BA34AF05D0904188 /* SwiftyJSON.swift */,
 				6F393D57E0E07E9499BB516346580299 /* Support Files */,
 			);
-			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -155,7 +154,6 @@
 				DB5F7A76C8AB60439336105623788E2F /* Base */,
 				68E10591F625303CF398764EEC2562C4 /* Maps */,
 			);
-			name = GoogleMaps;
 			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
@@ -165,7 +163,6 @@
 				ACC370E02DD27DF880225650CE821AA1 /* Frameworks */,
 				0105A6F51CA69E7BD8E1CB041935C45C /* Resources */,
 			);
-			name = GooglePlacePicker;
 			path = GooglePlacePicker;
 			sourceTree = "<group>";
 		};
@@ -243,7 +240,6 @@
 				DF60868292BE30DFD80C77F53D2D6655 /* Frameworks */,
 				18714192092A3B231BEAF1FC472CD827 /* Resources */,
 			);
-			name = GooglePlaces;
 			path = GooglePlaces;
 			sourceTree = "<group>";
 		};
