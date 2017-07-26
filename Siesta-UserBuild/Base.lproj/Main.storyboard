@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -116,7 +116,7 @@
                         <viewControllerLayoutGuide type="top" id="vg2-9v-fpV"/>
                         <viewControllerLayoutGuide type="bottom" id="8Sw-JW-pmx"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="PAu-A0-VyL">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="PAu-A0-VyL">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -183,7 +183,7 @@
                         <viewControllerLayoutGuide type="top" id="oVR-b1-WqF"/>
                         <viewControllerLayoutGuide type="bottom" id="4XI-UQ-ykg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tEJ-LO-Mgw">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="tEJ-LO-Mgw">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -296,7 +296,7 @@
                         <viewControllerLayoutGuide type="top" id="Bvw-I3-gbP"/>
                         <viewControllerLayoutGuide type="bottom" id="pPe-b7-Sgi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="t6N-30-af8">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="t6N-30-af8">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -367,7 +367,7 @@
                         <viewControllerLayoutGuide type="top" id="2gY-It-sBe"/>
                         <viewControllerLayoutGuide type="bottom" id="gng-88-eDp"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qyj-YF-Hfj">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="qyj-YF-Hfj">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -506,6 +506,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="52"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAT-bd-nhg">
+                                <rect key="frame" x="316" y="106" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -541,6 +545,7 @@
                     <connections>
                         <outlet property="alarmDestinationTextField" destination="Z5m-bH-wgy" id="Dda-AN-AuZ"/>
                         <outlet property="alarmOriginTextField" destination="dV3-Uk-CNw" id="hoN-FN-KHC"/>
+                        <outlet property="alarmSwitch" destination="kAT-bd-nhg" id="IT2-4E-dhw"/>
                         <outlet property="dashedLabel" destination="2dJ-XP-RBX" id="ABU-B0-6eZ"/>
                         <outlet property="fromIntervalLabel" destination="0bd-qM-icL" id="ETL-O9-tjb"/>
                         <outlet property="reachTimeTextField" destination="mi8-YD-Zgx" id="Cj2-CK-3CZ"/>
@@ -573,7 +578,7 @@
         <scene sceneID="SYe-qp-xOV">
             <objects>
                 <tableViewController id="4iN-8S-BhQ" customClass="ListAlarmsTableViewController" customModule="Siesta_UserBuild" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="oyJ-25-jpw">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="oyJ-25-jpw">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -620,14 +625,6 @@
                                             <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="GMSNavNightModeSprites-0-1x.png" translatesAutoresizingMaskIntoConstraints="NO" id="ATA-aV-iQc">
-                                            <rect key="frame" x="309" y="36" width="51" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
-                                            <connections>
-                                                <action selector="alarmSwitchTapped:" destination="zd5-1Y-dqF" eventType="valueChanged" id="0eY-Z6-t31"/>
-                                            </connections>
-                                        </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="12:00 - 1:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mX-sy-8Km">
                                             <rect key="frame" x="18" y="9" width="573" height="45"/>
                                             <constraints>
@@ -651,7 +648,6 @@
                                 <connections>
                                     <outlet property="alarmDestination" destination="K1o-Ns-UE7" id="DJo-3D-Q54"/>
                                     <outlet property="alarmOrigin" destination="Q8H-Jc-8dq" id="lGG-oJ-HjH"/>
-                                    <outlet property="alarmSwitch" destination="ATA-aV-iQc" id="kI5-SW-3Na"/>
                                     <outlet property="alarmTimeLabel" destination="4mX-sy-8Km" id="bdm-ej-utx"/>
                                     <segue destination="5Z2-G8-yup" kind="show" identifier="displayAlarmFromListSegue" id="h77-8f-u8y"/>
                                 </connections>
@@ -682,7 +678,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="QvZ-BT-fIc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="QvZ-BT-fIc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -707,7 +703,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GMSNavNightModeSprites-0-1x.png" width="128" height="142"/>
         <image name="Line-1" width="25" height="7"/>
         <image name="alarm-icon-8132" width="256" height="232"/>
     </resources>

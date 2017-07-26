@@ -13,9 +13,15 @@ struct TimeCalculationsHelper {
         let calendar = Calendar.current
         let readyPlusTraffic = -1*(trafficDuration! + readyTime!)
         let wakeUpTime = calendar.date(byAdding: .second, value: Int(readyPlusTraffic), to: reachTime!)
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "HH : mm"
+    
+    
         let wakeUpTimeComponents = calendar.dateComponents(in: .current, from: wakeUpTime!)
-        print("\(wakeUpTimeComponents.hour!) : \(wakeUpTimeComponents.minute!)")
+    
+    
+        print("the wake up time from timecalculationshelper is: \(wakeUpTimeComponents.hour!) : \(wakeUpTimeComponents.minute!)")
 
-        
+    
     }
 }

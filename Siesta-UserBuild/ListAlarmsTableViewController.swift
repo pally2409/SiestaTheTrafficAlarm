@@ -16,11 +16,21 @@ class ListAlarmsTableViewController: UITableViewController {
     }
     
     }
+    
+    //static var filteredAlarmsArray = [Alarm]()
+    
+    
+    
     @IBAction func unwindToListAlarmsViewController(_ segue: UIStoryboardSegue) {
         self.alarms = CoreDataHelper.retrieveAlarms()
         
     }
     
+  static func getActiveAlarms() {
+        
+       
+
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
@@ -98,7 +108,7 @@ class ListAlarmsTableViewController: UITableViewController {
         cell.alarmTimeLabel.text = "\(componentsFromAlarmTime.hour!) : \(componentsFromAlarmTime.minute!) -  \(componentsToAlarmTime.hour!) : \(componentsToAlarmTime.minute!)"
         cell.alarmOrigin.text = alarm.origin
         cell.alarmDestination.text = alarm.destination
-        alarm.isOn = cell.alarmSwitch.isOn
+        
         return cell
         
     }

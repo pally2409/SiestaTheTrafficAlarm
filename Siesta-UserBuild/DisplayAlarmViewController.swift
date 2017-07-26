@@ -23,6 +23,7 @@ class DisplayAlarmViewController: UIViewController {
     
     @IBOutlet weak var toIntervalLabel: UITextField!
     
+    @IBOutlet weak var alarmSwitch: UISwitch!
     var origin: String = " "
     var destination: String = " "
     var alarmInterval: String = " "
@@ -53,7 +54,7 @@ class DisplayAlarmViewController: UIViewController {
                 let toIntervalString = formatter.date(from: toIntervalLabel.text!)
                 alarm.fromInterval = fromIntervalString! as NSDate
                 alarm.toInterval = toIntervalString! as NSDate
-                alarm.isOn = false
+                alarm.isOn = alarmSwitch.isOn
         }
 
     }

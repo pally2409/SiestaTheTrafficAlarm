@@ -59,6 +59,10 @@ class TrafficDataViewController: UIViewController {
     }
     
     func calculateWakeUpTime () {
+        
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "HH : mm"
+////        let readyTimeString = formatter.string(from: )
         print("ready time: \(readyTime!)")
         print("reach time: \(reachTime!)")
         print("traffic time \(trafficDurationF!)")
@@ -88,7 +92,7 @@ class TrafficDataViewController: UIViewController {
             let readyTimeDate = formatter.date(from: readyTimeString)
             newAlarm.readyTime = readyTimeDate! as NSDate
             newAlarm.reachTime = (formatter.date(from: reachTimeString)! as NSDate)
-            newAlarm.isOn = false
+            newAlarm.isOn = true
              CoreDataHelper.saveAlarm()
         }
     }
@@ -100,6 +104,7 @@ class TrafficDataViewController: UIViewController {
         // Do any additional setup after loading the view
         passDataFromAPI()
         _ = Timer.scheduledTimer(timeInterval: 120, target: self, selector: #selector(passDataFromAPI), userInfo: nil, repeats: true)
+        currentController = self
         
     }
 

@@ -16,6 +16,8 @@ class LocationService {
     static var duration_in_traffic: String =  " "
     static var distance: String = " "
     static var timeUnix: Double = 0.0
+    static var origin: String = " "
+    static var destination: String = " "
     
     
     static func durationTraffic(_ origin: String, _ destination: String, completion: @escaping (String, String, Double) -> Void) {
@@ -73,4 +75,5 @@ class LocationService {
         task.resume()
     }
     
+   
 }
