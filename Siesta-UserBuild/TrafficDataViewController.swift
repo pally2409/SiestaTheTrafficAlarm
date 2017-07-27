@@ -45,12 +45,21 @@ class TrafficDataViewController: UIViewController {
         self.trafficDuration = timeUnix
             print("print pass data from api traffic duration \(self.trafficDuration)")
         self.convertUnixDateToTimeInterval(self.trafficDuration)
-        self.calculateWakeUpTime()
-        
+        let wakeUpTime = self.calculateWakeUpTime()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents(in: .current, from: wakeUpTime)
+        let currentDate = Date()
+        let currentDateComponents = calendar.dateComponents(in: .current, from: currentDate)
+        let trafficAlarmTimeComponents = DateComponents(calendar: calendar, timeZone: .current, month:
+            currentDateComponents.month, day: currentDateComponents.day, hour: components.hour, minute: components.minute)
+            
+        NotificationHelper.createNotification("trafficAlarm", "Wake Up", "You should wake up now", "You should wake up now to reach on time", "venus-isle-30", trafficAlarmTimeComponents)
         })
-        
-       
+    
+    
     }
+    
+    
     
     
     func convertUnixDateToTimeInterval (_ ditUnix: Double) {
@@ -58,7 +67,7 @@ class TrafficDataViewController: UIViewController {
 
     }
     
-    func calculateWakeUpTime () {
+    func calculateWakeUpTime () -> Date {
         
 //        let formatter = DateFormatter()
 //        formatter.dateFormat = "HH : mm"
@@ -67,8 +76,8 @@ class TrafficDataViewController: UIViewController {
         print("reach time: \(reachTime!)")
         print("traffic time \(trafficDurationF!)")
         
-        TimeCalculationsHelper.calculateWakeUpTime(readyTime, trafficDurationF, reachTime)
-        
+        let wakeUpTime = TimeCalculationsHelper.calculateWakeUpTime(readyTime, trafficDurationF, reachTime)
+        return wakeUpTime
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,12 +96,10 @@ class TrafficDataViewController: UIViewController {
             newAlarm.destination = destination
             newAlarm.fromInterval = (formatter.date(from: fromIntervalString)! as NSDate)
             newAlarm.toInterval = (formatter.date(from: toIntervalString)! as NSDate)
-            let readyTimeCast = NSDate(timeIntervalSince1970: readyTime!)
-            let readyTimeString = formatter.string(from: readyTimeCast as Date)
-            let readyTimeDate = formatter.date(from: readyTimeString)
-            newAlarm.readyTime = readyTimeDate! as NSDate
+            newAlarm.readyTime = Int64(readyTime!)
             newAlarm.reachTime = (formatter.date(from: reachTimeString)! as NSDate)
             newAlarm.isOn = true
+            newAlarm.reachTimeString = reachTimeString
              CoreDataHelper.saveAlarm()
         }
     }
@@ -103,7 +110,13 @@ class TrafficDataViewController: UIViewController {
 
         // Do any additional setup after loading the view
         passDataFromAPI()
-        _ = Timer.scheduledTimer(timeInterval: 120, target: self, selector: #selector(passDataFromAPI), userInfo: nil, repeats: true)
+        
+        
+        
+        
+        
+        
+        
         currentController = self
         
     }

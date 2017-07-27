@@ -47,7 +47,7 @@ class DisplayAlarmViewController: UIViewController {
                 formatter.dateFormat = "HH:mm"
 //                let readyTimeString = formatter.string(from: readyTimeCast as Date)
                 let readyTimeDate = formatter.date(from: readyTimeTextField.text!)
-                alarm.readyTime = readyTimeDate! as NSDate
+                alarm.readyTime = Int64(readyTime!)
                 let reachTimeString = formatter.date(from: reachTimeTextField.text!)
                 alarm.reachTime = reachTimeString! as NSDate
                 let fromIntervalString = formatter.date(from: fromIntervalLabel.text!)
@@ -66,7 +66,7 @@ class DisplayAlarmViewController: UIViewController {
             alarmDestinationTextField.text = alarm.destination
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm"
-            readyTimeTextField.text = formatter.string(from: alarm.readyTime! as Date)
+            readyTimeTextField.text = String(alarm.readyTime)
             let calendar = Calendar.current
             let componentsReachTime = calendar.dateComponents(in: .current, from: alarm.reachTime! as Date)
             let componentsFromAlarmTime = calendar.dateComponents(in: .current, from: alarm.fromInterval! as Date)

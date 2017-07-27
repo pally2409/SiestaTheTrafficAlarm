@@ -22,8 +22,9 @@ struct NotificationHelper {
             initialAlarmContent.categoryIdentifier = "initialAalrmCategory"
             let trigger = UNCalendarNotificationTrigger(dateMatching: alarmTimeComponents, repeats: false)
             let request = UNNotificationRequest(identifier:
-                "timerDone", content: initialAlarmContent, trigger: trigger)
+                "initialAlarmDone", content: initialAlarmContent, trigger: trigger)
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            print("notification is scheduled for \(alarmTimeComponents.hour!):\(alarmTimeComponents.minute!):")
             
         } else if alarmType == "trafficAlarm" {
             let trafficAlarmContent = UNMutableNotificationContent()
@@ -31,12 +32,12 @@ struct NotificationHelper {
             trafficAlarmContent.subtitle = subtitle
             trafficAlarmContent.body = body
             trafficAlarmContent.sound = UNNotificationSound.init(named: soundName)
-            trafficAlarmContent.categoryIdentifier = "trafficAalrmCategory"
+            trafficAlarmContent.categoryIdentifier = "AalrmCategory"
             let trigger = UNCalendarNotificationTrigger(dateMatching: alarmTimeComponents, repeats: false)
             let request = UNNotificationRequest(identifier:
-                "timerDone", content: trafficAlarmContent, trigger: trigger)
+                "trafficAlarmDone", content: trafficAlarmContent, trigger: trigger)
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-
+            print("notification is scheduled for \(alarmTimeComponents.hour!):\(alarmTimeComponents.minute!):")
         }
     }
 }

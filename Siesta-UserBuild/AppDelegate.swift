@@ -142,8 +142,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
 //        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 //    }
     
+    
+    func passDataFromAPI() {
+        
+        let alarms: [Alarm] = CoreDataHelper.retrieveAlarms()
+        print("lol palli")
+        for alarm in alarms {
+            if alarm.isOn == true {
+                LocationService.durationTraffic(alarm.origin!, alarm.destination!, completion: {
+                    duration_in_traffic, distance, timeUnix in
+                    
+                    let calendar = Calendar.current
+                    let readyTimeInterval = TimeInterval(alarm.readyTime)
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "HH : mm"
+                    formatter.timeZone = TimeZone.current
+                    let trafficDurationF = TimeInterval(timeUnix)
+                    
+                    let reachTimeInDate = formatter.date(from: alarm.reachTimeString!)
+                    let wakeUpTime = TimeCalculationsHelper.calculateWakeUpTime(readyTimeInterval, trafficDurationF, reachTimeInDate!)
+                    let wakeUpTimecomponents = calendar.dateComponents(in: .current, from: wakeUpTime)
+                    
+                    
+                    
+                    
+                    NotificationHelper.createNotification("trafficAlarm", "Wake Up", "You should wake up now", "You should wake up now to reach on time", "venus-isle-30", wakeUpTimecomponents)
+                })
+
+            }
+            
+        }
+        
+    }
+    
+
+    
     func application(_ application: UIApplication, didReceive notification: UILocalNotification)
     {
+        passDataFromAPI()
+        
         
         let alertSound = URL(fileURLWithPath: Bundle.main.path(forResource: "venus-isle-30", ofType: "wav")!)
         print(alertSound)
@@ -167,4 +204,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
 
 
 }
+
 

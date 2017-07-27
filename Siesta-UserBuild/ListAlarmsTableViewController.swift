@@ -10,6 +10,8 @@ import UIKit
 
 class ListAlarmsTableViewController: UITableViewController {
     
+    let currentTime = Date()
+    var activeAlarms = [Alarm]()
     var alarms = [Alarm]() {
     didSet {
         tableView.reloadData()
@@ -17,18 +19,19 @@ class ListAlarmsTableViewController: UITableViewController {
     
     }
     
-    //static var filteredAlarmsArray = [Alarm]()
-    
-    
     
     @IBAction func unwindToListAlarmsViewController(_ segue: UIStoryboardSegue) {
         self.alarms = CoreDataHelper.retrieveAlarms()
         
     }
     
-  static func getActiveAlarms() {
+   func getActiveAlarms() {
         
-       
+    for alarm in alarms {
+        if alarm.isOn == true {
+            activeAlarms.append(alarm)
+        }
+    }
 
     }
     
@@ -65,7 +68,27 @@ class ListAlarmsTableViewController: UITableViewController {
         self.navigationItem.titleView = imageView
         UIApplication.shared.statusBarStyle = .lightContent
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+//        getActiveAlarms()
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "HH : mm"
+//        let currentTimeString = formatter.string(from: currentTime)
+//        let currentTimeFormatted = formatter.date(from: currentTimeString)
+//        let calendar = Calendar.current
+//        let currentTimecomponents = calendar.dateComponents(in: .current, from: currentTimeFormatted!)
+//        
+//        for alarm in activeAlarms {
+//            let alarmTimeComponents = calendar.dateComponents(in: .current, from: alarm.fromInterval as! Date)
+//            if currentTimecomponents.hour! > alarmTimeComponents.hour! {
+//                
+//            }
+//        }
+        
+        
+        
+    
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
