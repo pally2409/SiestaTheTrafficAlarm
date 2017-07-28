@@ -26,7 +26,7 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
     var readyTime: TimeInterval?
     var reachTime: Date?
     var fromAlarmTime: Date?
-    var toAlarmTime: Date?
+    
     
     
 
@@ -136,8 +136,7 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
             DestViewController.readyTime = self.readyTime!
             DestViewController.reachTime = self.reachTime!
             DestViewController.fromAlarmTime = self.fromAlarmTime!
-            DestViewController.toAlarmTime = self.toAlarmTime!
-            
+                        
         }
     }
  

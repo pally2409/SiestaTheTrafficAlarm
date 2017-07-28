@@ -12,7 +12,7 @@ import UserNotifications
 class SetAlarmViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var fromAlarmTime: UIDatePicker!
-    @IBOutlet weak var toAlarmTime: UIDatePicker!
+    
     
     @IBAction func doneButtonTapped(_ sender: Any) {
         
@@ -40,7 +40,7 @@ class SetAlarmViewController: UIViewController, UNUserNotificationCenterDelegate
         if segue.identifier == "otherInfoSegue" {
             let DestViewController = segue.destination as! SetOtherInformationViewController
             DestViewController.fromAlarmTime = fromAlarmTime.date
-            DestViewController.toAlarmTime = toAlarmTime.date
+            
             
         }
     }
@@ -59,6 +59,8 @@ class SetAlarmViewController: UIViewController, UNUserNotificationCenterDelegate
         //Asking authorization from user
         UNUserNotificationCenter.current().requestAuthorization(options: [], completionHandler: {didAllow, error in
         })
+        fromAlarmTime.setValue(UIColor.white, forKeyPath: "textColor")
+        fromAlarmTime.setValue(false, forKeyPath: "highlightsToday")
         UNUserNotificationCenter.current().delegate = self
 
     }

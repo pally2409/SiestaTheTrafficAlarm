@@ -126,9 +126,7 @@ class ListAlarmsTableViewController: UITableViewController {
         let alarm = alarms[row]
         let calendar = Calendar.current
         let componentsFromAlarmTime = calendar.dateComponents(in: .current, from: alarm.fromInterval! as Date)
-        let componentsToAlarmTime = calendar.dateComponents(in: .current, from: alarm.toInterval! as Date)
-        
-        cell.alarmTimeLabel.text = "\(componentsFromAlarmTime.hour!) : \(componentsFromAlarmTime.minute!) -  \(componentsToAlarmTime.hour!) : \(componentsToAlarmTime.minute!)"
+        cell.alarmTimeLabel.text = "\(componentsFromAlarmTime.hour!) : \(componentsFromAlarmTime.minute!)"
         cell.alarmOrigin.text = alarm.origin
         cell.alarmDestination.text = alarm.destination
         

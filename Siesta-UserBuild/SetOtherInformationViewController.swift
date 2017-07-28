@@ -16,7 +16,6 @@ class SetOtherInformationViewController: UIViewController, UNUserNotificationCen
     @IBOutlet weak var reachTime: UIDatePicker!
     
     var fromAlarmTime: Date?
-    var toAlarmTime: Date?
     
     @IBAction func continueButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "locationSettingsViewControllerSegue", sender: self)
@@ -40,7 +39,7 @@ class SetOtherInformationViewController: UIViewController, UNUserNotificationCen
             DestViewController.readyTime = readyTimeInterval
             DestViewController.reachTime = reachTime.date
             DestViewController.fromAlarmTime = fromAlarmTime
-            DestViewController.toAlarmTime = toAlarmTime
+            
             
         }
     }
@@ -64,6 +63,11 @@ class SetOtherInformationViewController: UIViewController, UNUserNotificationCen
         UNUserNotificationCenter.current().requestAuthorization(options: [], completionHandler: {didAllow, error in
         })
         UNUserNotificationCenter.current().delegate = self
+        readyTime.setValue(UIColor.white, forKeyPath: "textColor")
+        readyTime.setValue(false, forKeyPath: "highlightsToday")
+        reachTime.setValue(UIColor.white, forKeyPath: "textColor")
+        reachTime.setValue(false, forKeyPath: "highlightsToday")
+
     }
 
     override func didReceiveMemoryWarning() {

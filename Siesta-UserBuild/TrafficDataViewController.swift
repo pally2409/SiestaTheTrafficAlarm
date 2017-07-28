@@ -28,7 +28,7 @@ class TrafficDataViewController: UIViewController {
     var reachTime: Date?
     var trafficDurationF: TimeInterval?
     var fromAlarmTime: Date?
-    var toAlarmTime: Date?
+    
     
     
     @IBAction func doneButtonTapped(_ sender: Any) {
@@ -87,15 +87,13 @@ class TrafficDataViewController: UIViewController {
             let calendar = Calendar.current
             let fromIntervalComponents = calendar.dateComponents(in: .current, from: fromAlarmTime!)
             let fromIntervalString = "\(fromIntervalComponents.hour!) : \(fromIntervalComponents.minute!)"
-            let toIntervalComponents = calendar.dateComponents(in: .current, from: toAlarmTime!)
-            let toIntervalString = "\(toIntervalComponents.hour!) : \(toIntervalComponents.minute!)"
             let reachTimeComponents = calendar.dateComponents(in: .current, from: reachTime!)
             let reachTimeString = "\(reachTimeComponents.hour!) : \(reachTimeComponents.minute!)"
             let newAlarm = CoreDataHelper.newAlarm()
             newAlarm.origin = origin
             newAlarm.destination = destination
             newAlarm.fromInterval = (formatter.date(from: fromIntervalString)! as NSDate)
-            newAlarm.toInterval = (formatter.date(from: toIntervalString)! as NSDate)
+           
             newAlarm.readyTime = Int64(readyTime!)
             newAlarm.reachTime = (formatter.date(from: reachTimeString)! as NSDate)
             newAlarm.isOn = true

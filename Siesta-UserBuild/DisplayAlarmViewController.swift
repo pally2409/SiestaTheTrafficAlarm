@@ -28,7 +28,6 @@ class DisplayAlarmViewController: UIViewController {
     var destination: String = " "
     var alarmInterval: String = " "
     var fromAlarmTime: Date?
-    var toAlarmTime: Date?
     var readyTime: TimeInterval?
     var reachTime: Date?
     var alarm: Alarm?
@@ -53,7 +52,6 @@ class DisplayAlarmViewController: UIViewController {
                 let fromIntervalString = formatter.date(from: fromIntervalLabel.text!)
                 let toIntervalString = formatter.date(from: toIntervalLabel.text!)
                 alarm.fromInterval = fromIntervalString! as NSDate
-                alarm.toInterval = toIntervalString! as NSDate
                 alarm.isOn = alarmSwitch.isOn
         }
 
@@ -70,10 +68,8 @@ class DisplayAlarmViewController: UIViewController {
             let calendar = Calendar.current
             let componentsReachTime = calendar.dateComponents(in: .current, from: alarm.reachTime! as Date)
             let componentsFromAlarmTime = calendar.dateComponents(in: .current, from: alarm.fromInterval! as Date)
-            let componentsToAlarmTime = calendar.dateComponents(in: .current, from: alarm.toInterval! as Date)
             reachTimeTextField.text = "\(componentsReachTime.hour!) : \(componentsReachTime.minute!)"
             fromIntervalLabel.text = "\(componentsFromAlarmTime.hour!):\(componentsFromAlarmTime.minute!)"
-            toIntervalLabel.text = "\(componentsToAlarmTime.hour!):\(componentsToAlarmTime.minute!)"
         } else {
            
         }
@@ -85,6 +81,13 @@ class DisplayAlarmViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        let logo = UIImage(named: "DisplayIcon.png")
+        let imageView = UIImageView(image: logo)
+        imageView.contentMode = .scaleAspectFit // set imageview's content mode
+        self.navigationItem.titleView = imageView
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     

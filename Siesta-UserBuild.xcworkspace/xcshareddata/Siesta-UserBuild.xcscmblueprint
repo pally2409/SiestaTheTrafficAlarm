@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "AC81969E182120221E4F7D09B14D121E1DAB1BA1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "AC81969E182120221E4F7D09B14D121E1DAB1BA1" : 9223372036854775807,
+    "BB67AA7B7D493A1879E54790355F5666BE584BC7" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BEA2DF56-3909-47ED-B076-CD4EE25F5B34",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "AC81969E182120221E4F7D09B14D121E1DAB1BA1" : "Siesta-UserBuild\/",
+    "BB67AA7B7D493A1879E54790355F5666BE584BC7" : "..\/siesta-alarm"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Siesta-UserBuild",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Siesta-UserBuild.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/pally2409\/siesta-the-traffic-alarm.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AC81969E182120221E4F7D09B14D121E1DAB1BA1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/pally2409\/siesta-alarm.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BB67AA7B7D493A1879E54790355F5666BE584BC7"
+    }
+  ]
+}
