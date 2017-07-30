@@ -93,7 +93,6 @@ class TrafficDataViewController: UIViewController {
             newAlarm.origin = origin
             newAlarm.destination = destination
             newAlarm.fromInterval = (formatter.date(from: fromIntervalString)! as NSDate)
-           
             newAlarm.readyTime = Int64(readyTime!)
             newAlarm.reachTime = (formatter.date(from: reachTimeString)! as NSDate)
             newAlarm.isOn = true

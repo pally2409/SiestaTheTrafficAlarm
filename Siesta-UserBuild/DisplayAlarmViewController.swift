@@ -11,10 +11,12 @@ import UIKit
 class DisplayAlarmViewController: UIViewController {
     
     
-    @IBOutlet weak var alarmOriginTextField: UITextField!
-    @IBOutlet weak var alarmDestinationTextField: UITextField!
+    @IBOutlet weak var alarmOriginTextField: UILabel!
+    @IBOutlet weak var alarmDestinationTextField: UILabel!
+    @IBOutlet weak var fromAlarmDatePicker: UIDatePicker!
     @IBOutlet weak var readyTimeTextField: UITextField!
     
+    @IBOutlet weak var readyTimeDatePicker: UIDatePicker!
     @IBOutlet weak var reachTimeTextField: UITextField!
     
     @IBOutlet weak var fromIntervalLabel: UITextField!
@@ -40,17 +42,14 @@ class DisplayAlarmViewController: UIViewController {
             let alarm = self.alarm!
                 alarm.origin = alarmOriginTextField.text!
                 alarm.destination = alarmDestinationTextField.text!
-                
-//                let readyTimeCast = NSDate(timeIntervalSince1970: Double(readyTimeTextField.text!)!)
                 let formatter = DateFormatter()
                 formatter.dateFormat = "HH:mm"
-//                let readyTimeString = formatter.string(from: readyTimeCast as Date)
-                let readyTimeDate = formatter.date(from: readyTimeTextField.text!)
-                alarm.readyTime = Int64(readyTime!)
+ 
+                alarm.readyTime = Int64(readyTimeTextField.text!)!
                 let reachTimeString = formatter.date(from: reachTimeTextField.text!)
                 alarm.reachTime = reachTimeString! as NSDate
                 let fromIntervalString = formatter.date(from: fromIntervalLabel.text!)
-                let toIntervalString = formatter.date(from: toIntervalLabel.text!)
+            
                 alarm.fromInterval = fromIntervalString! as NSDate
                 alarm.isOn = alarmSwitch.isOn
         }
@@ -64,10 +63,15 @@ class DisplayAlarmViewController: UIViewController {
             alarmDestinationTextField.text = alarm.destination
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm"
+            let readyTimeInSeconds = Double(alarm.readyTime)
+            let readyTimeInDate = Date(timeIntervalSince1970: TimeInterval(readyTimeInSeconds))
+            let readyTimeString = formatter.string(from: readyTimeInDate)
+            readyTimeDatePicker.date = formatter.date(from: readyTimeString)!
             readyTimeTextField.text = String(alarm.readyTime)
             let calendar = Calendar.current
             let componentsReachTime = calendar.dateComponents(in: .current, from: alarm.reachTime! as Date)
             let componentsFromAlarmTime = calendar.dateComponents(in: .current, from: alarm.fromInterval! as Date)
+            fromAlarmDatePicker.date = alarm.fromInterval! as Date
             reachTimeTextField.text = "\(componentsReachTime.hour!) : \(componentsReachTime.minute!)"
             fromIntervalLabel.text = "\(componentsFromAlarmTime.hour!):\(componentsFromAlarmTime.minute!)"
         } else {

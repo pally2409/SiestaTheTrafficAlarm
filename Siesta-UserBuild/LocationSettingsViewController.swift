@@ -26,50 +26,98 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
     var readyTime: TimeInterval?
     var reachTime: Date?
     var fromAlarmTime: Date?
-    
-    
-    
+    var selectedPin: MKPlacemark?
+    var searchResult: String?
+    var originCoordinate = CLLocationCoordinate2D()
+    var destinationCoordinate = CLLocationCoordinate2D()
+    let origPin = MKPointAnnotation()
+    let destPin = MKPointAnnotation()
 
     
-    
-    
-    @IBOutlet weak var currentLocationAddressField: UITextField!
-    @IBOutlet weak var currentLocationSwitch: UISwitch!
-    
-    @IBOutlet weak var inputLocationAddressField: UITextField!
-    @IBOutlet weak var inputLocationSwitch: UISwitch!
-    
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var destinationAddressField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
     
-    @IBAction func inputLocationSwitchOn(_ sender: Any) {
-            if self.inputLocationSwitch.isOn {
-                self.inputLocationAddressField.isEnabled = true
-                currentLocationSwitch.isOn = false
-                present(autocompleteControllerOrigin, animated: true, completion: nil)
-            }
-            else {
-                self.inputLocationAddressField.isEnabled = false
-            }
+    @IBOutlet weak var originAddressField: UITextField!
+
+    
+//    @IBAction func currentLocationSwitchOn(_ sender: Any) {
+//        if currentLocationSwitch.isOn {
+//            currentLocationAddressField.isEnabled = true
+//            inputLocationSwitch.isOn = false
+//        }
+//        else {
+//            currentLocationAddressField.isEnabled = false
+//        }
+//        manager.startUpdatingLocation()
+//    }
+
+    @IBAction func unwindToLocationSettingsViewController(_ segue: UIStoryboardSegue) {
+        let sourceVC = segue.source as! SearchViewController
+        if sourceVC.flag == 0 {
+        originAddressField.text = sourceVC.searchResult
+            let span: MKCoordinateSpan = MKCoordinateSpanMake(0.001, 0.001)
+            let originLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(sourceVC.resultCoordinate.latitude, sourceVC.resultCoordinate.longitude)
+            let region: MKCoordinateRegion = MKCoordinateRegionMake(originLocation, span)
+            mapView.setRegion(region, animated: true)
+
+            originCoordinate = sourceVC.resultCoordinate
+            
+            origPin.coordinate = originCoordinate
+            mapView.addAnnotation(origPin)
+            origPin.title = "Orign"
+            
+            
+        } else if sourceVC.flag == 1 {
+            destinationAddressField.text = sourceVC.searchResult
+            let span: MKCoordinateSpan = MKCoordinateSpanMake(0.001, 0.001)
+            let destinationLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(sourceVC.resultCoordinate.latitude, sourceVC.resultCoordinate.longitude)
+            let region: MKCoordinateRegion = MKCoordinateRegionMake(destinationLocation, span)
+            mapView.setRegion(region, animated: true)
+
+            destinationCoordinate = sourceVC.resultCoordinate
+            
+            destPin.coordinate = destinationCoordinate
+            mapView.addAnnotation(destPin)
+            destPin.title = "Destination"
+        }
+        
+    }
+    
+    
+    
+    
+ 
+    @IBAction func orginFieldTapped(_ sender: Any) {
+        performSegue(withIdentifier: "showOriginSearchTableView", sender: self)
+        originAddressField.endEditing(true)
+        
 
     }
     
-    @IBAction func currentLocationSwitchOn(_ sender: Any) {
-        if currentLocationSwitch.isOn {
-            currentLocationAddressField.isEnabled = true
-            inputLocationSwitch.isOn = false
-        }
-        else {
-            currentLocationAddressField.isEnabled = false
-        }
-        manager.startUpdatingLocation()
-    }
     
+    
+    @IBAction func destinationAddressFieldTapped(_ sender: Any) {
+        performSegue(withIdentifier: "showDestinationSearchTableView", sender: self)
+        destinationAddressField.endEditing(true)
+        
+    }
     
     //Getting currentlocation
     
+    
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.001, 0.001)
+        let myCurrentLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let region: MKCoordinateRegion = MKCoordinateRegionMake(myCurrentLocation, span)
+        mapView.setRegion(region, animated: true)
+        origPin.coordinate = myCurrentLocation
+        mapView.addAnnotation(origPin)
+        origPin.title = "Orign"
+        self.mapView.showsUserLocation = true
+        
         CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
             if error != nil {
                 print ("there was an error")
@@ -82,7 +130,7 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
             var trimmed = self.location
             trimmed = trimmed.replacingOccurrences(of: "\n", with: ", ")
             
-            self.currentLocationAddressField.text = "\(trimmed)"
+            self.originAddressField.text = "\(trimmed)"
             manager.stopUpdatingLocation()
             
         }
@@ -100,18 +148,6 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
         return originAddress
     }
     
-    @IBAction func textFieldEditingDidEnd(_ sender: Any) {
-                   if (!(inputLocationAddressField.text?.isEmpty)! && !(destinationAddressField.text?.isEmpty)!) || !(currentLocationAddressField.text?.isEmpty)! && !(destinationAddressField.text?.isEmpty)! {
-                continueButton.isEnabled = true
-            } else {
-                continueButton.isEnabled = false
-            }
-
-    }
-    @IBAction func addressFieldTapped(_ sender: Any) {
-        present(autocompleteControllerDestination, animated: true, completion: nil)
-    }
-    
     @IBAction func continueButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "trafficDataViewControllerSegue", sender: self)
     }
@@ -119,24 +155,26 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "trafficDataViewControllerSegue" {
              let DestViewController = segue.destination as! TrafficDataViewController
-            if currentLocationSwitch.isOn == true {
-            DestViewController.origin = currentLocationAddressField.text!
-            DestViewController.destination = destinationAddressField.text!
-            print(DestViewController.origin)
-            print(DestViewController.destination)
-                
-            } else {
-                DestViewController.origin = inputLocationAddressField.text!
+            
+                DestViewController.origin = originAddressField.text!
                 DestViewController.destination = destinationAddressField.text!
                 print(DestViewController.origin)
                 print(DestViewController.destination)
-                
-            }
+            
             
             DestViewController.readyTime = self.readyTime!
             DestViewController.reachTime = self.reachTime!
             DestViewController.fromAlarmTime = self.fromAlarmTime!
                         
+        } else if segue.identifier == "showOriginSearchTableView" {
+            let DestViewController = segue.destination as! SearchViewController
+            DestViewController.flag = 0
+        } else if segue.identifier == "showDestinationSearchTableView" {
+            
+            
+            let DestViewController = segue.destination as! SearchViewController
+            DestViewController.flag = 1
+            
         }
     }
  
@@ -154,12 +192,10 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
             manager.requestWhenInUseAuthorization()
             manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         }
+        manager.startUpdatingLocation()
         
         self.hideKeyboard()
-        autocompleteControllerOrigin.delegate = self
-        autocompleteControllerDestination.delegate = self
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -199,40 +235,3 @@ extension UIViewController
     }
 }
 
-extension LocationSettingsViewController: GMSAutocompleteViewControllerDelegate {
-    
-    // Handle the user's selection.
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)!")
-        print("Place attributions: \(place.attributions)!")
-        dismiss(animated: true, completion: nil)
-        
-        if viewController == autocompleteControllerOrigin {
-            inputLocationAddressField.text = "\(place.formattedAddress!)"
-        } else {
-            destinationAddressField.text = "\(place.formattedAddress!)"
-        }
-        
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
-    }
-    
-    // User canceled the operation.
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-    
-}

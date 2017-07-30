@@ -33,6 +33,7 @@
 		A7A4D9C71F25A8E700D56CF9 /* DisplayAlarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A4D9C61F25A8E700D56CF9 /* DisplayAlarm.storyboard */; };
 		A7A4D9C91F25AF5A00D56CF9 /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */; };
 		A7F9D4431F292C9600C640F9 /* TimeZoneConversionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4421F292C9600C640F9 /* TimeZoneConversionHelper.swift */; };
+		A7F9D4631F2D772400C640F9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4621F2D772400C640F9 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		A7A4D9C61F25A8E700D56CF9 /* DisplayAlarm.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayAlarm.storyboard; sourceTree = "<group>"; };
 		A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
 		A7F9D4421F292C9600C640F9 /* TimeZoneConversionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeZoneConversionHelper.swift; sourceTree = "<group>"; };
+		A7F9D4621F2D772400C640F9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F2E18BC077F9AEED1F710FD0 /* Pods-Siesta-UserBuild.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Siesta-UserBuild.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Siesta-UserBuild/Pods-Siesta-UserBuild.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 				A77CA0B61F1D53CB00409D34 /* LocationSettingsViewController.swift */,
 				A77CA0BF1F1E887B00409D34 /* TrafficDataViewController.swift */,
 				A77CA0D31F22AB3200409D34 /* DisplayAlarmViewController.swift */,
+				A7F9D4621F2D772400C640F9 /* SearchViewController.swift */,
 				A77CA0CB1F22989200409D34 /* ListAlarmsTableViewController.swift */,
 			);
 			name = "View Controllers";
@@ -348,6 +351,7 @@
 				A77CA0C41F211CF100409D34 /* TimeCalculationsHelper.swift in Sources */,
 				A77CA0D41F22AB3200409D34 /* DisplayAlarmViewController.swift in Sources */,
 				A71424541F26C0920038392D /* Alarm.xcdatamodeld in Sources */,
+				A7F9D4631F2D772400C640F9 /* SearchViewController.swift in Sources */,
 				A77CA0D01F229CE600409D34 /* ListAlarmsTableViewCell.swift in Sources */,
 				A77CA09E1F1D162B00409D34 /* ViewController.swift in Sources */,
 				A77CA0C01F1E887B00409D34 /* TrafficDataViewController.swift in Sources */,
