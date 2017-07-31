@@ -41,17 +41,18 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
     @IBOutlet weak var originAddressField: UITextField!
 
     
-//    @IBAction func currentLocationSwitchOn(_ sender: Any) {
-//        if currentLocationSwitch.isOn {
-//            currentLocationAddressField.isEnabled = true
-//            inputLocationSwitch.isOn = false
-//        }
-//        else {
-//            currentLocationAddressField.isEnabled = false
-//        }
-//        manager.startUpdatingLocation()
-//    }
-
+    @IBAction func dropPinWithLongPress(_ sender: UILongPressGestureRecognizer) {
+        if sender.state != UIGestureRecognizerState.began { return }
+        let touchLocation = sender.location(in: mapView)
+        let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
+        print("Tapped at lat: \(locationCoordinate.latitude) long: \(locationCoordinate.longitude)")
+        let newPin = MKPointAnnotation()
+        newPin.coordinate = locationCoordinate
+        mapView.addAnnotation(newPin)
+        
+    }
+    
+    
     @IBAction func unwindToLocationSettingsViewController(_ segue: UIStoryboardSegue) {
         let sourceVC = segue.source as! SearchViewController
         if sourceVC.flag == 0 {
@@ -179,7 +180,6 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
     }
  
     
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -195,7 +195,8 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
         manager.startUpdatingLocation()
         
         self.hideKeyboard()
-
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -24,14 +24,36 @@ class SetAlarmViewController: UIViewController, UNUserNotificationCenterDelegate
         
         //Components from Date Picker
         let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.dateComponents(in: .current, from: fromAlarmTime.date)
+        _ = calendar.dateComponents(in: .current, from: fromAlarmTime.date)
+        let currentDate = Date()
+        var setAlarmTime: Date?
+//        if components.hour  == currentDateComponents.hour {
+//            if components.minute! == currentDateComponents.minute! || components.minute! < currentDateComponents.minute!
+//            {
+//               setAlarmTime = calendar.date(byAdding: .day, value: 1, to: fromAlarmTime.date)
+//            } else {
+//                setAlarmTime = fromAlarmTime.date
+//            }
+//        } else if components.hour < currentDateComponents.hour {
+//            
+//        }
+//            
+//        }
         
-        let initialAlarmTimeComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
+        if currentDate > fromAlarmTime.date {
+            setAlarmTime = calendar.date(byAdding: .day, value: 1, to: fromAlarmTime.date)
+        } else {
+            setAlarmTime = fromAlarmTime.date
+        }
+        
+        let alarmComponents = calendar.dateComponents(in: .current, from: setAlarmTime!)
+        
+        let initialAlarmTimeComponents = DateComponents(calendar: calendar, timeZone: .current, month: alarmComponents.month, day: alarmComponents.day, hour: alarmComponents.hour, minute: alarmComponents.minute)
         
         //Notification
         NotificationHelper.createNotification("initialAlarm", "It's \(initialAlarmTimeComponents.hour ?? 00):\(initialAlarmTimeComponents.minute ?? 00)", "Go back to sleep after opening the app", "Please keep the app open", "venus-isle-30", initialAlarmTimeComponents)
         
-        print(fromAlarmTime.date)
+        print(initialAlarmTimeComponents.day!)
         
     }
 

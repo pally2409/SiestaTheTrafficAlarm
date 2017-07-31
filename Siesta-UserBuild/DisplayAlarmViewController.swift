@@ -11,20 +11,25 @@ import UIKit
 class DisplayAlarmViewController: UIViewController {
     
     
+    //Locations
     @IBOutlet weak var alarmOriginTextField: UILabel!
     @IBOutlet weak var alarmDestinationTextField: UILabel!
-    @IBOutlet weak var fromAlarmDatePicker: UIDatePicker!
+    
+    //InitialAlarm
+    var initialAlarmDatePicker = UIDatePicker()
+    @IBOutlet weak var initialAlarmTextField: UITextField!
+    
+    
+    //ReadyTime
+    var readyTimeDatePicker = UIDatePicker()
     @IBOutlet weak var readyTimeTextField: UITextField!
     
-    @IBOutlet weak var readyTimeDatePicker: UIDatePicker!
+    
+    //ReachTime
+    var reachTimeDatePicker = UIDatePicker()
     @IBOutlet weak var reachTimeTextField: UITextField!
     
-    @IBOutlet weak var fromIntervalLabel: UITextField!
-   
-    @IBOutlet weak var dashedLabel: UITextField!
-    
-    @IBOutlet weak var toIntervalLabel: UITextField!
-    
+
     @IBOutlet weak var alarmSwitch: UISwitch!
     var origin: String = " "
     var destination: String = " "
@@ -35,7 +40,88 @@ class DisplayAlarmViewController: UIViewController {
     var alarm: Alarm?
     
     
-   
+    //Datepicker Toolbars
+    
+    //Date picker for initial alarm
+    func pickUpInitialAlarmDatePicker() {
+        
+        
+        //creating toolbar
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        initialAlarmDatePicker.datePickerMode = .time
+        //bar button item
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneAndSetInitialAlarm))
+        toolBar.setItems([doneButton], animated: false)
+        initialAlarmTextField.inputAccessoryView = toolBar
+        initialAlarmTextField.inputView = initialAlarmDatePicker
+    }
+    
+    //Date picker for reach time
+    
+       func pickUpReachTimeDatePicker() {
+    
+        //creating toolbar
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        reachTimeDatePicker.datePickerMode = .time
+        //bar button item
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneAndSetReachTime))
+        toolBar.setItems([doneButton], animated: false)
+        reachTimeTextField.inputAccessoryView = toolBar
+        reachTimeTextField.inputView = reachTimeDatePicker
+    }
+
+    func pickUpReadyTimeDatePicker() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        readyTimeDatePicker.datePickerMode = .countDownTimer
+        //bar button item
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneAndSetreadyTime))
+        toolBar.setItems([doneButton], animated: false)
+        readyTimeTextField.inputAccessoryView = toolBar
+        readyTimeTextField.inputView = readyTimeDatePicker
+
+    }
+    
+    
+    // done button for toolbar
+    func doneAndSetInitialAlarm() {
+       initialAlarmTextField.text = DateFormatterHelper.dateFormatter(date: initialAlarmDatePicker.date)
+       self.view.endEditing(true)
+    }
+    
+    func doneAndSetreadyTime() {
+        readyTimeTextField.text = DateFormatterHelper.dateFormatter(date: readyTimeDatePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    func doneAndSetReachTime() {
+        self.reachTimeTextField.text = DateFormatterHelper.dateFormatter(date: reachTimeDatePicker.date)
+        self.view.endEditing(true)
+    }
+
+    
+    //initial alarm text field tapped
+    @IBAction func intialAlarmTextFieldBeginEditing(_ sender: Any) {
+        self.pickUpInitialAlarmDatePicker()
+    }
+    
+    
+    
+    //ready time text field tapped
+    @IBAction func readyTimeTextFieldBeginEditing(_ sender: Any) {
+       self.pickUpReadyTimeDatePicker()
+    }
+    
+    //reach time text field tapped
+    @IBAction func reachTimeTextFieldBeginEditing(_ sender: Any) {
+         self.pickUpReachTimeDatePicker()
+        
+    }
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "save" {
             
@@ -44,13 +130,22 @@ class DisplayAlarmViewController: UIViewController {
                 alarm.destination = alarmDestinationTextField.text!
                 let formatter = DateFormatter()
                 formatter.dateFormat = "HH:mm"
- 
-                alarm.readyTime = Int64(readyTimeTextField.text!)!
+               let readyTimeInDate = formatter.date(from: readyTimeTextField.text!)
+               let currentDate = Date()
+               let calendar = Calendar.current
+               var components = calendar.dateComponents(in: .current, from: currentDate)
+               components.hour = 0
+               components.minute = 0
+               components.second = 0
+               let todayMidnight = calendar.date(from: components)!
+               let readyTimeInterval = readyTimeInDate?.timeIntervalSince(todayMidnight)
+            
+                alarm.readyTime = Int64(readyTimeInterval!)
+                
                 let reachTimeString = formatter.date(from: reachTimeTextField.text!)
                 alarm.reachTime = reachTimeString! as NSDate
-                let fromIntervalString = formatter.date(from: fromIntervalLabel.text!)
-            
-                alarm.fromInterval = fromIntervalString! as NSDate
+                let initialAlarmString = formatter.date(from: initialAlarmTextField.text!)
+                alarm.fromInterval = initialAlarmString! as NSDate
                 alarm.isOn = alarmSwitch.isOn
         }
 
@@ -63,17 +158,15 @@ class DisplayAlarmViewController: UIViewController {
             alarmDestinationTextField.text = alarm.destination
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm"
+            let gmtFormatter = DateFormatter()
+            gmtFormatter.timeZone = TimeZone.init(abbreviation: "GMT")
+            gmtFormatter.dateFormat = "HH : mm"
             let readyTimeInSeconds = Double(alarm.readyTime)
             let readyTimeInDate = Date(timeIntervalSince1970: TimeInterval(readyTimeInSeconds))
-            let readyTimeString = formatter.string(from: readyTimeInDate)
-            readyTimeDatePicker.date = formatter.date(from: readyTimeString)!
-            readyTimeTextField.text = String(alarm.readyTime)
-            let calendar = Calendar.current
-            let componentsReachTime = calendar.dateComponents(in: .current, from: alarm.reachTime! as Date)
-            let componentsFromAlarmTime = calendar.dateComponents(in: .current, from: alarm.fromInterval! as Date)
-            fromAlarmDatePicker.date = alarm.fromInterval! as Date
-            reachTimeTextField.text = "\(componentsReachTime.hour!) : \(componentsReachTime.minute!)"
-            fromIntervalLabel.text = "\(componentsFromAlarmTime.hour!):\(componentsFromAlarmTime.minute!)"
+            initialAlarmTextField.text = DateFormatterHelper.dateFormatter(date: alarm.fromInterval! as Date)
+            readyTimeTextField.text = gmtFormatter.string(from: readyTimeInDate)
+            reachTimeTextField.text = DateFormatterHelper.dateFormatter(date: alarm.reachTime! as Date)
+            
         } else {
            
         }

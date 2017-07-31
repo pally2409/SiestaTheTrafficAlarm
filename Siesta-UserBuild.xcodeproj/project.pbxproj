@@ -32,8 +32,9 @@
 		A77CA0DA1F22AF0000409D34 /* OtherInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77CA0D81F22AF0000409D34 /* OtherInfo.storyboard */; };
 		A7A4D9C71F25A8E700D56CF9 /* DisplayAlarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A4D9C61F25A8E700D56CF9 /* DisplayAlarm.storyboard */; };
 		A7A4D9C91F25AF5A00D56CF9 /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */; };
-		A7F9D4431F292C9600C640F9 /* TimeZoneConversionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4421F292C9600C640F9 /* TimeZoneConversionHelper.swift */; };
+		A7F9D4431F292C9600C640F9 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */; };
 		A7F9D4631F2D772400C640F9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4621F2D772400C640F9 /* SearchViewController.swift */; };
+		A7F9D4671F2FB4DD00C640F9 /* ToolBarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4661F2FB4DD00C640F9 /* ToolBarHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,8 +66,9 @@
 		A77CA0D91F22AF0000409D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OtherInfo.storyboard; sourceTree = "<group>"; };
 		A7A4D9C61F25A8E700D56CF9 /* DisplayAlarm.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayAlarm.storyboard; sourceTree = "<group>"; };
 		A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
-		A7F9D4421F292C9600C640F9 /* TimeZoneConversionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeZoneConversionHelper.swift; sourceTree = "<group>"; };
+		A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		A7F9D4621F2D772400C640F9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A7F9D4661F2FB4DD00C640F9 /* ToolBarHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarHelper.swift; sourceTree = "<group>"; };
 		F2E18BC077F9AEED1F710FD0 /* Pods-Siesta-UserBuild.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Siesta-UserBuild.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Siesta-UserBuild/Pods-Siesta-UserBuild.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,8 +179,9 @@
 			children = (
 				A77CA0C31F211CF100409D34 /* TimeCalculationsHelper.swift */,
 				A714242F1F26B2830038392D /* CoreDataHelper.swift */,
-				A7F9D4421F292C9600C640F9 /* TimeZoneConversionHelper.swift */,
+				A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */,
 				A77CA0C61F22704600409D34 /* NotificationHelper.swift */,
+				A7F9D4661F2FB4DD00C640F9 /* ToolBarHelper.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			files = (
 				A77CA0B71F1D53CB00409D34 /* LocationSettingsViewController.swift in Sources */,
 				A77CA0AE1F1D19AF00409D34 /* SetOtherInformationViewController.swift in Sources */,
+				A7F9D4671F2FB4DD00C640F9 /* ToolBarHelper.swift in Sources */,
 				A7A4D9C91F25AF5A00D56CF9 /* SetAlarmViewController.swift in Sources */,
 				A77CA0CC1F22989200409D34 /* ListAlarmsTableViewController.swift in Sources */,
 				A77CA0C71F22704600409D34 /* NotificationHelper.swift in Sources */,
@@ -357,7 +361,7 @@
 				A77CA0C01F1E887B00409D34 /* TrafficDataViewController.swift in Sources */,
 				A71424301F26B2830038392D /* CoreDataHelper.swift in Sources */,
 				A77CA0C21F1EC2B100409D34 /* LocationService.swift in Sources */,
-				A7F9D4431F292C9600C640F9 /* TimeZoneConversionHelper.swift in Sources */,
+				A7F9D4431F292C9600C640F9 /* DateFormatterHelper.swift in Sources */,
 				A77CA09C1F1D162B00409D34 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
