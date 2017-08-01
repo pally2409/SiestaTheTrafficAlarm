@@ -11,26 +11,20 @@
 		A71424301F26B2830038392D /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A714242F1F26B2830038392D /* CoreDataHelper.swift */; };
 		A71424541F26C0920038392D /* Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A71424521F26C0920038392D /* Alarm.xcdatamodeld */; };
 		A77CA09C1F1D162B00409D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA09B1F1D162B00409D34 /* AppDelegate.swift */; };
-		A77CA09E1F1D162B00409D34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA09D1F1D162B00409D34 /* ViewController.swift */; };
 		A77CA0A11F1D162B00409D34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77CA09F1F1D162B00409D34 /* Main.storyboard */; };
 		A77CA0A31F1D162B00409D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77CA0A21F1D162B00409D34 /* Assets.xcassets */; };
 		A77CA0A61F1D162B00409D34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77CA0A41F1D162B00409D34 /* LaunchScreen.storyboard */; };
 		A77CA0AE1F1D19AF00409D34 /* SetOtherInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0AD1F1D19AF00409D34 /* SetOtherInformationViewController.swift */; };
 		A77CA0B01F1D204300409D34 /* tickle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A77CA0AF1F1D204300409D34 /* tickle.mp3 */; };
 		A77CA0B21F1D231A00409D34 /* venus-isle-30.wav in Resources */ = {isa = PBXBuildFile; fileRef = A77CA0B11F1D231A00409D34 /* venus-isle-30.wav */; };
-		A77CA0B51F1D382100409D34 /* LocationSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77CA0B31F1D382100409D34 /* LocationSettings.storyboard */; };
 		A77CA0B71F1D53CB00409D34 /* LocationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0B61F1D53CB00409D34 /* LocationSettingsViewController.swift */; };
-		A77CA0BE1F1E886400409D34 /* TrafficData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77CA0BC1F1E886400409D34 /* TrafficData.storyboard */; };
 		A77CA0C01F1E887B00409D34 /* TrafficDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0BF1F1E887B00409D34 /* TrafficDataViewController.swift */; };
 		A77CA0C21F1EC2B100409D34 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0C11F1EC2B100409D34 /* LocationService.swift */; };
 		A77CA0C41F211CF100409D34 /* TimeCalculationsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0C31F211CF100409D34 /* TimeCalculationsHelper.swift */; };
 		A77CA0C71F22704600409D34 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0C61F22704600409D34 /* NotificationHelper.swift */; };
-		A77CA0CA1F22981E00409D34 /* ListAlarms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77CA0C91F22981E00409D34 /* ListAlarms.storyboard */; };
 		A77CA0CC1F22989200409D34 /* ListAlarmsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0CB1F22989200409D34 /* ListAlarmsTableViewController.swift */; };
 		A77CA0D01F229CE600409D34 /* ListAlarmsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0CF1F229CE600409D34 /* ListAlarmsTableViewCell.swift */; };
 		A77CA0D41F22AB3200409D34 /* DisplayAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0D31F22AB3200409D34 /* DisplayAlarmViewController.swift */; };
-		A77CA0DA1F22AF0000409D34 /* OtherInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77CA0D81F22AF0000409D34 /* OtherInfo.storyboard */; };
-		A7A4D9C71F25A8E700D56CF9 /* DisplayAlarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A4D9C61F25A8E700D56CF9 /* DisplayAlarm.storyboard */; };
 		A7A4D9C91F25AF5A00D56CF9 /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */; };
 		A7F9D4431F292C9600C640F9 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */; };
 		A7F9D4631F2D772400C640F9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4621F2D772400C640F9 /* SearchViewController.swift */; };
@@ -44,7 +38,6 @@
 		A71424531F26C0920038392D /* Alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Alarm.xcdatamodel; sourceTree = "<group>"; };
 		A77CA0981F1D162B00409D34 /* Siesta-UserBuild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Siesta-UserBuild.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77CA09B1F1D162B00409D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A77CA09D1F1D162B00409D34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A77CA0A01F1D162B00409D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A77CA0A21F1D162B00409D34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A77CA0A51F1D162B00409D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,19 +45,14 @@
 		A77CA0AD1F1D19AF00409D34 /* SetOtherInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetOtherInformationViewController.swift; sourceTree = "<group>"; };
 		A77CA0AF1F1D204300409D34 /* tickle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tickle.mp3; path = "../../../siesta-alarm/tickle.mp3"; sourceTree = "<group>"; };
 		A77CA0B11F1D231A00409D34 /* venus-isle-30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "venus-isle-30.wav"; sourceTree = SOURCE_ROOT; };
-		A77CA0B41F1D382100409D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LocationSettings.storyboard; sourceTree = "<group>"; };
 		A77CA0B61F1D53CB00409D34 /* LocationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSettingsViewController.swift; sourceTree = "<group>"; };
-		A77CA0BD1F1E886400409D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TrafficData.storyboard; sourceTree = "<group>"; };
 		A77CA0BF1F1E887B00409D34 /* TrafficDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficDataViewController.swift; sourceTree = "<group>"; };
 		A77CA0C11F1EC2B100409D34 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		A77CA0C31F211CF100409D34 /* TimeCalculationsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCalculationsHelper.swift; sourceTree = "<group>"; };
 		A77CA0C61F22704600409D34 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
-		A77CA0C91F22981E00409D34 /* ListAlarms.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListAlarms.storyboard; sourceTree = "<group>"; };
 		A77CA0CB1F22989200409D34 /* ListAlarmsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAlarmsTableViewController.swift; sourceTree = "<group>"; };
 		A77CA0CF1F229CE600409D34 /* ListAlarmsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAlarmsTableViewCell.swift; sourceTree = "<group>"; };
 		A77CA0D31F22AB3200409D34 /* DisplayAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAlarmViewController.swift; sourceTree = "<group>"; };
-		A77CA0D91F22AF0000409D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OtherInfo.storyboard; sourceTree = "<group>"; };
-		A7A4D9C61F25A8E700D56CF9 /* DisplayAlarm.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayAlarm.storyboard; sourceTree = "<group>"; };
 		A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
 		A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		A7F9D4621F2D772400C640F9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -131,7 +119,6 @@
 		A77CA0B81F1E87B300409D34 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A77CA09D1F1D162B00409D34 /* ViewController.swift */,
 				A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */,
 				A77CA0AD1F1D19AF00409D34 /* SetOtherInformationViewController.swift */,
 				A77CA0B61F1D53CB00409D34 /* LocationSettingsViewController.swift */,
@@ -147,11 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				A77CA09F1F1D162B00409D34 /* Main.storyboard */,
-				A77CA0D81F22AF0000409D34 /* OtherInfo.storyboard */,
-				A77CA0B31F1D382100409D34 /* LocationSettings.storyboard */,
-				A77CA0BC1F1E886400409D34 /* TrafficData.storyboard */,
-				A77CA0C91F22981E00409D34 /* ListAlarms.storyboard */,
-				A7A4D9C61F25A8E700D56CF9 /* DisplayAlarm.storyboard */,
 				A77CA0A41F1D162B00409D34 /* LaunchScreen.storyboard */,
 			);
 			name = Stroyboards;
@@ -282,12 +264,7 @@
 				A77CA0A61F1D162B00409D34 /* LaunchScreen.storyboard in Resources */,
 				A77CA0A31F1D162B00409D34 /* Assets.xcassets in Resources */,
 				A77CA0B21F1D231A00409D34 /* venus-isle-30.wav in Resources */,
-				A77CA0DA1F22AF0000409D34 /* OtherInfo.storyboard in Resources */,
-				A77CA0B51F1D382100409D34 /* LocationSettings.storyboard in Resources */,
-				A77CA0CA1F22981E00409D34 /* ListAlarms.storyboard in Resources */,
-				A7A4D9C71F25A8E700D56CF9 /* DisplayAlarm.storyboard in Resources */,
 				A77CA0A11F1D162B00409D34 /* Main.storyboard in Resources */,
-				A77CA0BE1F1E886400409D34 /* TrafficData.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +334,6 @@
 				A71424541F26C0920038392D /* Alarm.xcdatamodeld in Sources */,
 				A7F9D4631F2D772400C640F9 /* SearchViewController.swift in Sources */,
 				A77CA0D01F229CE600409D34 /* ListAlarmsTableViewCell.swift in Sources */,
-				A77CA09E1F1D162B00409D34 /* ViewController.swift in Sources */,
 				A77CA0C01F1E887B00409D34 /* TrafficDataViewController.swift in Sources */,
 				A71424301F26B2830038392D /* CoreDataHelper.swift in Sources */,
 				A77CA0C21F1EC2B100409D34 /* LocationService.swift in Sources */,
@@ -383,30 +359,6 @@
 				A77CA0A51F1D162B00409D34 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		A77CA0B31F1D382100409D34 /* LocationSettings.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A77CA0B41F1D382100409D34 /* Base */,
-			);
-			name = LocationSettings.storyboard;
-			sourceTree = "<group>";
-		};
-		A77CA0BC1F1E886400409D34 /* TrafficData.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A77CA0BD1F1E886400409D34 /* Base */,
-			);
-			name = TrafficData.storyboard;
-			sourceTree = "<group>";
-		};
-		A77CA0D81F22AF0000409D34 /* OtherInfo.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A77CA0D91F22AF0000409D34 /* Base */,
-			);
-			name = OtherInfo.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

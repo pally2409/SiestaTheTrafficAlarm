@@ -45,7 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
             locationManager = CLLocationManager()
             locationManager?.requestWhenInUseAuthorization()
             UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
-
+            
+            
+            
         }
         
         
@@ -160,8 +162,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
                     let trafficDurationF = TimeInterval(timeUnix)
                     
                     let reachTimeInDate = formatter.date(from: alarm.reachTimeString!)
-                    let wakeUpTime = TimeCalculationsHelper.calculateWakeUpTime(readyTimeInterval, trafficDurationF, reachTimeInDate!)
-                    let wakeUpTimecomponents = calendar.dateComponents(in: .current, from: wakeUpTime)
+                    var wakeUpTime = TimeCalculationsHelper.calculateWakeUpTime(readyTimeInterval, trafficDurationF, reachTimeInDate!)
+                    
+                    
+                    let currentDate = Date()
+                    if currentDate > wakeUpTime {
+                        wakeUpTime = calendar.date(byAdding: .day, value: 1, to: wakeUpTime)!
+                    }
+                    
+                    
+                    var wakeUpTimecomponents = calendar.dateComponents(in: .current, from: wakeUpTime)
                     
                     
                     
@@ -180,7 +190,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
     func application(_ application: UIApplication, didReceive notification: UILocalNotification)
     {
         passDataFromAPI()
-        
+        self.audioPlayer?.stop()
         
         let alertSound = URL(fileURLWithPath: Bundle.main.path(forResource: "venus-isle-30", ofType: "wav")!)
         print(alertSound)

@@ -11,6 +11,8 @@ import UserNotifications
 
 class SetAlarmViewController: UIViewController, UNUserNotificationCenterDelegate {
     
+    
+    
     @IBOutlet weak var fromAlarmTime: UIDatePicker!
     
     
@@ -24,22 +26,9 @@ class SetAlarmViewController: UIViewController, UNUserNotificationCenterDelegate
         
         //Components from Date Picker
         let calendar = Calendar(identifier: .gregorian)
-        _ = calendar.dateComponents(in: .current, from: fromAlarmTime.date)
         let currentDate = Date()
         var setAlarmTime: Date?
-//        if components.hour  == currentDateComponents.hour {
-//            if components.minute! == currentDateComponents.minute! || components.minute! < currentDateComponents.minute!
-//            {
-//               setAlarmTime = calendar.date(byAdding: .day, value: 1, to: fromAlarmTime.date)
-//            } else {
-//                setAlarmTime = fromAlarmTime.date
-//            }
-//        } else if components.hour < currentDateComponents.hour {
-//            
-//        }
-//            
-//        }
-        
+
         if currentDate > fromAlarmTime.date {
             setAlarmTime = calendar.date(byAdding: .day, value: 1, to: fromAlarmTime.date)
         } else {

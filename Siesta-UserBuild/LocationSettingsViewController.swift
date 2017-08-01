@@ -194,6 +194,17 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
         }
         manager.startUpdatingLocation()
         
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .notDetermined, .restricted, .denied:
+                print("No access")
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("Access")
+            }
+        } else {
+            print("Location services are not enabled")
+        }
+        
         self.hideKeyboard()
         
         

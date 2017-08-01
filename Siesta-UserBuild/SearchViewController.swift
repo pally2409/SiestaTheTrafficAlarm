@@ -18,6 +18,8 @@ class SearchViewController: UIViewController {
     var resultCoordinate = CLLocationCoordinate2D()
     @IBOutlet weak var searchResultsTableView: UITableView!
     var flag: Int?
+    var editingFlag = 0
+    var editField: Int?
     
     func checkForZeroResults() -> Bool {
         if searchResults.count == 0 {
@@ -98,7 +100,11 @@ extension SearchViewController: UITableViewDelegate {
             let coordinate = response?.mapItems[0].placemark.coordinate
             self.resultCoordinate = coordinate!
             print(String(describing: coordinate))
+            if self.editingFlag == 0 {
             self.performSegue(withIdentifier: "unwindToLocationSettingsViewController", sender: self)
+            } else if self.editingFlag == 1 {
+                self.performSegue(withIdentifier: "unwindToEditLocationSettingsViewController:", sender: self)
+            }
         }
     }
 }

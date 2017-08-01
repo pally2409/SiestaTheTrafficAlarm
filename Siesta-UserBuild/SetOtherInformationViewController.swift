@@ -37,6 +37,7 @@ class SetOtherInformationViewController: UIViewController, UNUserNotificationCen
             let todayMidnight = calendar.date(from: components)!
             let readyTimeInterval = readyTime.date.timeIntervalSince(todayMidnight)
             DestViewController.readyTime = readyTimeInterval
+            print("the ready time interval from setotherinfo is \(readyTimeInterval)")
             DestViewController.reachTime = reachTime.date
             DestViewController.fromAlarmTime = fromAlarmTime
             

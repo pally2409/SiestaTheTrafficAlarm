@@ -12,8 +12,8 @@ class DisplayAlarmViewController: UIViewController {
     
     
     //Locations
-    @IBOutlet weak var alarmOriginTextField: UILabel!
-    @IBOutlet weak var alarmDestinationTextField: UILabel!
+    @IBOutlet weak var alarmOriginTextField: UITextField!
+    @IBOutlet weak var alarmDestinationTextField: UITextField!
     
     //InitialAlarm
     var initialAlarmDatePicker = UIDatePicker()
@@ -105,6 +105,7 @@ class DisplayAlarmViewController: UIViewController {
     //initial alarm text field tapped
     @IBAction func intialAlarmTextFieldBeginEditing(_ sender: Any) {
         self.pickUpInitialAlarmDatePicker()
+        
     }
     
     
@@ -120,7 +121,33 @@ class DisplayAlarmViewController: UIViewController {
         
     }
     
+    @IBAction func editOrignFieldTapped(_ sender: Any) {
+        performSegue(withIdentifier: "editOriginSegue", sender: self)
+        alarmOriginTextField.endEditing(true)
+    }
     
+    @IBAction func editDestinationFieldTapped(_ sender: Any) {
+        performSegue(withIdentifier: "editDestinationSegue", sender: self)
+        alarmDestinationTextField.endEditing(true)
+    }
+    
+    
+    @IBAction func setUpNewInitialAlarm(_ sender: Any) {
+    
+        let calendar = Calendar(identifier: .gregorian)
+          var initialAlarm = DateFormatterHelper.dateFormatterFromString(stringDate: initialAlarmTextField.text!)
+        
+          let currentDate = Date()
+        if currentDate > initialAlarm {
+            initialAlarm = calendar.date(byAdding: .day, value: 1, to: initialAlarm)!
+        }
+        
+        var initialAlarmComponents = calendar.dateComponents(in: .current, from: initialAlarm)
+        print(initialAlarm)
+        NotificationHelper.createNotification("initialAlarm", "It's \(initialAlarmComponents.hour ?? 00):\(initialAlarmComponents.minute ?? 00)", "Go back to sleep after opening the app", "Please keep the app open", "venus-isle-30", initialAlarmComponents)
+    }
+    
+  
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "save" {
@@ -129,10 +156,20 @@ class DisplayAlarmViewController: UIViewController {
                 alarm.origin = alarmOriginTextField.text!
                 alarm.destination = alarmDestinationTextField.text!
                 let formatter = DateFormatter()
-                formatter.dateFormat = "HH:mm"
-               let readyTimeInDate = formatter.date(from: readyTimeTextField.text!)
-               let currentDate = Date()
-               let calendar = Calendar.current
+                formatter.dateFormat = "HH : mm"
+            formatter.timeZone = TimeZone.current
+            print(TimeZone.current)
+            var readyTimeInDate = formatter.date(from: readyTimeTextField.text!)
+            
+            let currentTZ = TimeZone.current
+            print(readyTimeInDate!)
+            let currentDate = Date()
+            let calendar = Calendar.current
+            if currentTZ.isDaylightSavingTime(for: currentDate) == true {
+            readyTimeInDate = calendar.date(byAdding: .hour, value: -1, to: readyTimeInDate!)
+            }
+            
+            
                var components = calendar.dateComponents(in: .current, from: currentDate)
                components.hour = 0
                components.minute = 0
@@ -147,9 +184,36 @@ class DisplayAlarmViewController: UIViewController {
                 let initialAlarmString = formatter.date(from: initialAlarmTextField.text!)
                 alarm.fromInterval = initialAlarmString! as NSDate
                 alarm.isOn = alarmSwitch.isOn
+            CoreDataHelper.saveAlarm()
+        } else if segue.identifier == "editOriginSegue" {
+            let DestVC = segue.destination as! SearchViewController
+            DestVC.editingFlag = 1
+            DestVC.editField = 0
+            
+        } else if segue.identifier == "editDestinationSegue" {
+            let DestVC = segue.destination as! SearchViewController
+            DestVC.editingFlag = 1
+            DestVC.editField = 1
         }
+        
+        
 
     }
+    
+    @IBAction func unwindToEditLocationSettingsViewController(_ segue: UIStoryboardSegue) {
+        
+        let sourceVC = segue.source as! SearchViewController
+        if sourceVC.editField == 0 {
+       
+      alarm?.origin = sourceVC.searchResult!
+//            alarmOriginTextField.text = origin
+        } else if sourceVC.editField == 1 {
+          alarm?.destination = sourceVC.searchResult!
+//            alarmDestinationTextField.text = destination
+        }
+    }
+    
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
