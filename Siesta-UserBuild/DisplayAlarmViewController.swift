@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class DisplayAlarmViewController: UIViewController {
     
@@ -132,20 +133,7 @@ class DisplayAlarmViewController: UIViewController {
     }
     
     
-    @IBAction func setUpNewInitialAlarm(_ sender: Any) {
     
-        let calendar = Calendar(identifier: .gregorian)
-          var initialAlarm = DateFormatterHelper.dateFormatterFromString(stringDate: initialAlarmTextField.text!)
-        
-          let currentDate = Date()
-        if currentDate > initialAlarm {
-            initialAlarm = calendar.date(byAdding: .day, value: 1, to: initialAlarm)!
-        }
-        
-        var initialAlarmComponents = calendar.dateComponents(in: .current, from: initialAlarm)
-        print(initialAlarm)
-        NotificationHelper.createNotification("initialAlarm", "It's \(initialAlarmComponents.hour ?? 00):\(initialAlarmComponents.minute ?? 00)", "Go back to sleep after opening the app", "Please keep the app open", "venus-isle-30", initialAlarmComponents)
-    }
     
   
     
@@ -185,6 +173,40 @@ class DisplayAlarmViewController: UIViewController {
                 alarm.fromInterval = initialAlarmString! as NSDate
                 alarm.isOn = alarmSwitch.isOn
             CoreDataHelper.saveAlarm()
+            
+            
+            //Setup a new alarm according to the updated time
+            
+            
+            
+            var initialAlarm = DateFormatterHelper.dateFormatterFromString(stringDate: initialAlarmTextField.text!)
+            var currentTimeDate = Date()
+            var initialAlarmComponents = calendar.dateComponents(in: .current, from: initialAlarm)
+            var helperComponents = calendar.dateComponents(in: .current, from: currentTimeDate)
+            initialAlarmComponents.day = helperComponents.day
+            initialAlarmComponents.month = helperComponents.month
+            initialAlarmComponents.year = helperComponents.year
+            initialAlarm = calendar.date(from: initialAlarmComponents)!
+            if currentTimeDate > initialAlarm {
+                currentTimeDate = calendar.date(byAdding: .day, value: 1, to: currentTimeDate)!
+                
+            }
+            print("lol")
+            print(currentTimeDate)
+            UIApplication.shared.cancelAllLocalNotifications()
+            let currentTimeComponents = calendar.dateComponents(in: .current, from: currentTimeDate)
+            
+            initialAlarmComponents = calendar.dateComponents(in: .current, from: initialAlarm)
+            let finalAlarmComponents = DateComponents(calendar: calendar, timeZone: .current, year: currentTimeComponents.year, month: currentTimeComponents.month, day: currentTimeComponents.day, hour: initialAlarmComponents.hour, minute: initialAlarmComponents.minute)
+            print("final components \(finalAlarmComponents)")
+            print("the initial alarm from the set time is \(initialAlarm)")
+            
+            
+    NotificationHelper.createNotification("initialAlarm", "It's \(initialAlarmComponents.hour ?? 00):\(initialAlarmComponents.minute ?? 00)", "Go back to sleep after opening the app", "Please keep the app open", "venus-isle-30", finalAlarmComponents)
+
+
+            
+            
         } else if segue.identifier == "editOriginSegue" {
             let DestVC = segue.destination as! SearchViewController
             DestVC.editingFlag = 1

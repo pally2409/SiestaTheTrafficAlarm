@@ -165,7 +165,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
                     var wakeUpTime = TimeCalculationsHelper.calculateWakeUpTime(readyTimeInterval, trafficDurationF, reachTimeInDate!)
                     
                     
-                    let currentDate = Date()
+                
+                    
+                    var currentDate = Date()
+                    var currentDateComponents = calendar.dateComponents(in: .current, from: currentDate)
                     if currentDate > wakeUpTime {
                         wakeUpTime = calendar.date(byAdding: .day, value: 1, to: wakeUpTime)!
                     }
