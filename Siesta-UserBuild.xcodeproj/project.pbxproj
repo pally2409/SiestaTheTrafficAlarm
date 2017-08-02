@@ -26,6 +26,7 @@
 		A77CA0D01F229CE600409D34 /* ListAlarmsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0CF1F229CE600409D34 /* ListAlarmsTableViewCell.swift */; };
 		A77CA0D41F22AB3200409D34 /* DisplayAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0D31F22AB3200409D34 /* DisplayAlarmViewController.swift */; };
 		A7A4D9C91F25AF5A00D56CF9 /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */; };
+		A7BB5F5B1F3273C7008B563C /* InternetConnectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BB5F5A1F3273C7008B563C /* InternetConnectionHelper.swift */; };
 		A7F9D4431F292C9600C640F9 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */; };
 		A7F9D4631F2D772400C640F9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4621F2D772400C640F9 /* SearchViewController.swift */; };
 		A7F9D4671F2FB4DD00C640F9 /* ToolBarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4661F2FB4DD00C640F9 /* ToolBarHelper.swift */; };
@@ -54,6 +55,7 @@
 		A77CA0CF1F229CE600409D34 /* ListAlarmsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAlarmsTableViewCell.swift; sourceTree = "<group>"; };
 		A77CA0D31F22AB3200409D34 /* DisplayAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAlarmViewController.swift; sourceTree = "<group>"; };
 		A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
+		A7BB5F5A1F3273C7008B563C /* InternetConnectionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnectionHelper.swift; sourceTree = "<group>"; };
 		A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		A7F9D4621F2D772400C640F9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A7F9D4661F2FB4DD00C640F9 /* ToolBarHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarHelper.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				A77CA0C31F211CF100409D34 /* TimeCalculationsHelper.swift */,
 				A714242F1F26B2830038392D /* CoreDataHelper.swift */,
 				A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */,
+				A7BB5F5A1F3273C7008B563C /* InternetConnectionHelper.swift */,
 				A77CA0C61F22704600409D34 /* NotificationHelper.swift */,
 				A7F9D4661F2FB4DD00C640F9 /* ToolBarHelper.swift */,
 			);
@@ -339,6 +342,7 @@
 				A77CA0C21F1EC2B100409D34 /* LocationService.swift in Sources */,
 				A7F9D4431F292C9600C640F9 /* DateFormatterHelper.swift in Sources */,
 				A77CA09C1F1D162B00409D34 /* AppDelegate.swift in Sources */,
+				A7BB5F5B1F3273C7008B563C /* InternetConnectionHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

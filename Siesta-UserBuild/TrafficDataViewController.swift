@@ -106,7 +106,25 @@ class TrafficDataViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if InternetConnectionHelper.connectedToNetwork() == false {
+        let controller = UIAlertController(title: "No Internet Connection", message: "You need internet connection to use this feature", preferredStyle: .alert)
+        
+        controller.addAction(UIAlertAction(title: "Okay", style: .default, handler: { action in
+        }))
+        
+        if (currentController) != nil {
+            currentController.present(controller, animated: true, completion: nil)
+        }
+        else {
+            print("no current controller sorry")
+            
+            return
+            
+        }
+        }
+        
+        
         // Do any additional setup after loading the view
 //        passDataFromAPI()
         currentController = self

@@ -185,6 +185,73 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
         super.viewDidLoad()
         
         
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .notDetermined, .restricted, .denied:
+                print("No access")
+                let controller = UIAlertController(title: "Location Services are disabled", message: "Please enable location for better user experience", preferredStyle: .alert)
+                
+                controller.addAction(UIAlertAction(title: "Okay", style: .default, handler: { action in
+                }))
+                
+                if (currentController) != nil {
+                    currentController.present(controller, animated: true, completion: nil)
+                }
+                else {
+                    print("no current controller sorry")
+                    
+                    return
+                    
+                }
+                
+                
+            
+
+            case .authorizedWhenInUse:
+                print("Access")
+            default:
+                print("...")
+            }
+        } else {
+            
+            
+    let controller = UIAlertController(title: "Location Services are disabled", message: "Please enable location for better user experience", preferredStyle: .alert)
+    
+    controller.addAction(UIAlertAction(title: "Okay", style: .default, handler: { action in
+    }))
+    
+    if (currentController) != nil {
+    currentController.present(controller, animated: true, completion: nil)
+    }
+    else {
+    print("no current controller sorry")
+    
+    return
+    
+    }
+        }
+    
+    
+        if InternetConnectionHelper.connectedToNetwork() == false {
+    
+            let controller = UIAlertController(title: "No Internet Connection", message: "You need internet connection to use this feature", preferredStyle: .alert)
+            
+            controller.addAction(UIAlertAction(title: "Okay", style: .default, handler: { action in
+            }))
+            
+            if (currentController) != nil {
+                currentController.present(controller, animated: true, completion: nil)
+            }
+            else {
+                print("no current controller sorry")
+                
+                return
+                
+            }
+
+            
+        }
+        
         currentController = self
         // For use in foreground
         self.manager.requestWhenInUseAuthorization()

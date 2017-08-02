@@ -54,7 +54,25 @@ class ListAlarmsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if UIApplication.shared.currentUserNotificationSettings?.types == .none {
+            let controller = UIAlertController(title: "Notifications are disabled", message: "Please enable notifications to enable the alarm to ring", preferredStyle: .alert)
+            
+            controller.addAction(UIAlertAction(title: "Okay", style: .default, handler: { action in
+            }))
+            
+            if (currentController) != nil {
+                currentController.present(controller, animated: true, completion: nil)
+            }
+            else {
+                print("no current controller sorry")
+                
+                return
+                
+            }
+        }
+
         
+    
         currentController = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
