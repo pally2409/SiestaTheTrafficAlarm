@@ -137,6 +137,12 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
         }
     }
 
+    
+    @IBAction func currentLocationButtonTapped(_ sender: Any) {
+        
+        manager.startUpdatingLocation()
+       
+    }
         
     func getAddressString(placemark: CLPlacemark) -> String? {
         var originAddress : String?

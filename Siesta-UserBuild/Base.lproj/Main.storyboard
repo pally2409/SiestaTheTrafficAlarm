@@ -328,6 +328,14 @@
                                     <outletCollection property="gestureRecognizers" destination="OFs-x8-fDq" appends="YES" id="arO-ml-3pX"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYP-AA-AJu">
+                                <rect key="frame" x="309" y="533" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="currentLocation"/>
+                                <connections>
+                                    <action selector="currentLocationButtonTapped:" destination="zis-Hj-Fec" eventType="touchUpInside" id="lpY-Ln-t30"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -821,131 +829,6 @@
             </objects>
             <point key="canvasLocation" x="-2341" y="-65"/>
         </scene>
-        <!--Location Settings View Controller-->
-        <scene sceneID="HRi-VA-3Ia">
-            <objects>
-                <viewController id="P7U-85-YIv" customClass="LocationSettingsViewController" customModule="Siesta_UserBuild" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="675-3E-2Ar"/>
-                        <viewControllerLayoutGuide type="bottom" id="XOg-fa-G0M"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3Y1-Gb-Wbo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-u7-Slz">
-                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N E W  A L A R M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="52" translatesAutoresizingMaskIntoConstraints="NO" id="zHn-zl-pUL">
-                                        <rect key="frame" x="10" y="10" width="355" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="OBO-TD-u0T"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfR-fR-c0F">
-                                        <rect key="frame" x="352" y="7" width="15" height="26"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="26" id="W9t-bD-39e"/>
-                                            <constraint firstAttribute="width" constant="15" id="tyN-wi-Dhh"/>
-                                        </constraints>
-                                        <state key="normal" title="Continue" image="Pin Left"/>
-                                        <connections>
-                                            <action selector="continueButtonTapped:" destination="P7U-85-YIv" eventType="touchUpInside" id="csU-r4-Q3z"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="zHn-zl-pUL" secondAttribute="trailing" constant="10" id="B7G-HB-Zog"/>
-                                    <constraint firstItem="DfR-fR-c0F" firstAttribute="top" secondItem="ztM-u7-Slz" secondAttribute="top" constant="7" id="BIF-qI-B4z"/>
-                                    <constraint firstItem="zHn-zl-pUL" firstAttribute="leading" secondItem="ztM-u7-Slz" secondAttribute="leading" constant="10" id="LOe-7Z-m6D"/>
-                                    <constraint firstItem="zHn-zl-pUL" firstAttribute="top" secondItem="ztM-u7-Slz" secondAttribute="top" constant="9.5" id="VXH-Cl-U2N"/>
-                                    <constraint firstAttribute="height" constant="40" id="fQP-D7-vHA"/>
-                                    <constraint firstAttribute="trailing" secondItem="DfR-fR-c0F" secondAttribute="trailing" constant="8" id="wVx-I2-tBF"/>
-                                </constraints>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Groupbg4" translatesAutoresizingMaskIntoConstraints="NO" id="ral-Cs-8Ks">
-                                <rect key="frame" x="3" y="41" width="370" height="102"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  Current Location" borderStyle="line" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="qgR-e5-jfR">
-                                <rect key="frame" x="51" y="58" width="308" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="orginFieldTapped:" destination="P7U-85-YIv" eventType="editingChanged" id="a3q-lM-ROC"/>
-                                    <action selector="orginFieldTapped:" destination="P7U-85-YIv" eventType="editingDidBegin" id="zMk-Pd-Bsa"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="HZy-kO-pBw">
-                                <rect key="frame" x="51" y="101" width="308" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.99607843139999996" green="0.99215686270000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="destinationAddressFieldTapped:" destination="P7U-85-YIv" eventType="editingDidBegin" id="hQB-9g-8Sa"/>
-                                    <action selector="destinationAddressFieldTapped:" destination="P7U-85-YIv" eventType="editingChanged" id="zlN-x2-gS5"/>
-                                </connections>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grouploc2" translatesAutoresizingMaskIntoConstraints="NO" id="yv6-Ss-cdU">
-                                <rect key="frame" x="16" y="58" width="27" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Axw-bS-QIL">
-                                <rect key="frame" x="-2" y="142" width="375" height="525"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="BR9-lr-C5h" appends="YES" id="Hl7-l7-Zeq"/>
-                                </connections>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ztM-u7-Slz" firstAttribute="top" secondItem="675-3E-2Ar" secondAttribute="bottom" id="I5N-Bi-Erg"/>
-                            <constraint firstItem="ztM-u7-Slz" firstAttribute="leading" secondItem="3Y1-Gb-Wbo" secondAttribute="leading" id="cP1-72-GJ9"/>
-                            <constraint firstAttribute="trailing" secondItem="ztM-u7-Slz" secondAttribute="trailing" id="r37-Na-HwD"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="continueButton" destination="DfR-fR-c0F" id="ROi-KR-wbd"/>
-                        <outlet property="destinationAddressField" destination="HZy-kO-pBw" id="U4E-gw-iiu"/>
-                        <outlet property="mapView" destination="Axw-bS-QIL" id="knz-YB-ttY"/>
-                        <outlet property="originAddressField" destination="qgR-e5-jfR" id="k3G-34-uCm"/>
-                        <outlet property="searchDisplayController" destination="7DV-sb-bKa" id="rVo-hE-QvV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ml8-Ul-3WG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="JUt-vo-xGS">
-                    <connections>
-                        <outlet property="delegate" destination="P7U-85-YIv" id="wNp-Bb-ARW"/>
-                        <outlet property="searchContentsController" destination="P7U-85-YIv" id="ocj-ET-3LT"/>
-                        <outlet property="searchResultsDataSource" destination="P7U-85-YIv" id="BPq-F3-tuQ"/>
-                        <outlet property="searchResultsDelegate" destination="P7U-85-YIv" id="klm-d9-Qey"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="KbS-Hz-osm">
-                    <connections>
-                        <outlet property="delegate" destination="P7U-85-YIv" id="hQL-Fp-BFm"/>
-                        <outlet property="searchContentsController" destination="P7U-85-YIv" id="e4E-dC-2sl"/>
-                        <outlet property="searchResultsDataSource" destination="P7U-85-YIv" id="ZYl-j6-T8L"/>
-                        <outlet property="searchResultsDelegate" destination="P7U-85-YIv" id="SM0-ac-erU"/>
-                    </connections>
-                </searchDisplayController>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="BR9-lr-C5h">
-                    <connections>
-                        <action selector="dropPinWithLongPress:" destination="P7U-85-YIv" id="8p4-11-8lh"/>
-                    </connections>
-                </pongPressGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="1245.5999999999999" y="-806.44677661169419"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Groupbg4" width="1814" height="1166"/>
@@ -956,8 +839,9 @@
         <image name="Pin Left" width="48" height="80"/>
         <image name="Rectangle 5-1" width="375" height="129"/>
         <image name="alarm-icon-8132" width="256" height="232"/>
+        <image name="currentLocation" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yg1-Lc-B5K"/>
+        <segue reference="ctM-wZ-650"/>
     </inferredMetricsTieBreakers>
 </document>
