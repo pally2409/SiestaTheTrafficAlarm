@@ -147,6 +147,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
     
     func passDataFromAPI() {
         
+        
         let alarms: [Alarm] = CoreDataHelper.retrieveAlarms()
         print("lol palli")
         for alarm in alarms {
@@ -160,28 +161,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
                     formatter.dateFormat = "HH : mm"
                     formatter.timeZone = TimeZone.current
                     let trafficDurationF = TimeInterval(timeUnix)
+                    var reachTimeInDate = alarm.reachTime! as Date
                     
-                    let reachTimeInDate = formatter.date(from: alarm.reachTimeString!)
-                    var wakeUpTime = TimeCalculationsHelper.calculateWakeUpTime(readyTimeInterval, trafficDurationF, reachTimeInDate!)
+                    var wakeUpTime = TimeCalculationsHelper.calculateWakeUpTime(readyTimeInterval, trafficDurationF, reachTimeInDate)
+                    
+                    let currentTZ = TimeZone.current
+                    let currentDate1 = Date()
+                    let calendar2 = Calendar.current
+                    
+                    if alarm.reachTimeString == "no"
+                    {
+                        if currentTZ.isDaylightSavingTime(for: currentDate1) == true {
+                            wakeUpTime = calendar2.date(byAdding: .hour, value: -1, to: wakeUpTime)!
+                        }
+
+                        
+                    }
                     
                     
                 
                     
                     var currentDate = Date()
                     var currentDateComponents = calendar.dateComponents(in: .current, from: currentDate)
+                    var wakeUpComp = calendar.dateComponents(in: .current, from: wakeUpTime)
+                    var helperComponents = calendar.dateComponents(in: .current, from: currentDate)
+                    let newHelperComponents = DateComponents(calendar: calendar, timeZone: .current, year: helperComponents.year, month: helperComponents.month, day: helperComponents.day, hour: wakeUpComp.hour, minute: wakeUpComp.minute)
+
+                    wakeUpTime = calendar.date(from:   newHelperComponents)!
                     if currentDate > wakeUpTime {
                         wakeUpTime = calendar.date(byAdding: .day, value: 1, to: wakeUpTime)!
                     }
-                    
+                
                     
                     var wakeUpTimecomponents = calendar.dateComponents(in: .current, from: wakeUpTime)
-                    
-                    
-                    
-                    
-                    NotificationHelper.createNotification("trafficAlarm", "Wake Up", "You should wake up now", "You should wake up now to reach on time", "venus-isle-30", wakeUpTimecomponents)
-                })
+                    var finalWakeUpComponents = DateComponents(calendar: calendar, timeZone: .current, year: wakeUpTimecomponents.year, month: wakeUpTimecomponents.month, day: wakeUpTimecomponents.day, hour: wakeUpTimecomponents.hour, minute: wakeUpTimecomponents.minute)
 
+                    print("wake up components")
+                    print(finalWakeUpComponents)
+                    
+                    
+                    NotificationHelper.createNotification("trafficAlarm", "Wake Up", "You should wake up now", "You should wake up now to reach on time", "venus-isle-30", finalWakeUpComponents)
+                    
+                    
+                    let center = UNUserNotificationCenter.current()
+                    center.getPendingNotificationRequests(completionHandler: { requests in
+                        for request in requests {
+                            print("the pending requests are \(request)")
+                        }
+                    })
+
+                })
+                
+                
+               
             }
             
         }
@@ -192,18 +224,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
     
     func application(_ application: UIApplication, didReceive notification: UILocalNotification)
     {
+        if notification.category == "initialAalrmCategory"
+        {
         passDataFromAPI()
-        self.audioPlayer?.stop()
-        
-        let alertSound = URL(fileURLWithPath: Bundle.main.path(forResource: "venus-isle-30", ofType: "wav")!)
-        print(alertSound)
-        
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-        try! AVAudioSession.sharedInstance().setActive(true)
-        
-        try! audioPlayer = AVAudioPlayer(contentsOf: alertSound)
-        audioPlayer!.prepareToPlay()
-        audioPlayer!.play()
+            
+        }
+       //        self.audioPlayer?.stop()
+//        
+//        let alertSound = URL(fileURLWithPath: Bundle.main.path(forResource: "venus-isle-30", ofType: "wav")!)
+//        print(alertSound)
+//        
+//        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+//        try! AVAudioSession.sharedInstance().setActive(true)
+//        
+//        try! audioPlayer = AVAudioPlayer(contentsOf: alertSound)
+//        audioPlayer!.prepareToPlay()
+//        audioPlayer!.play()
         
         let controller = UIAlertController(title: "test", message: "hello", preferredStyle: .alert)
         
@@ -211,10 +247,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
             self.audioPlayer?.stop()
         }))
         
-        currentController.present(controller, animated: true, completion: nil)
-
+        if (currentController) != nil {
+            currentController.present(controller, animated: true, completion: nil)
+        }
+            else {
+             print("no current controller sorry")
+            
+        return
+        
+        }
+        
+        
+    
     }
-
 
 }
 

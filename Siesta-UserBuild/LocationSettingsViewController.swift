@@ -184,6 +184,8 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        currentController = self
         // For use in foreground
         self.manager.requestWhenInUseAuthorization()
         

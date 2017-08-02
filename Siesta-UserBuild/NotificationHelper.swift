@@ -24,7 +24,7 @@ struct NotificationHelper {
             let request = UNNotificationRequest(identifier:
                 "initialAlarmDone", content: initialAlarmContent, trigger: trigger)
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            print("notification is scheduled for \(alarmTimeComponents.hour!):\(alarmTimeComponents.minute!):")
+            print("notification is scheduled for \(alarmTimeComponents.hour!):\(alarmTimeComponents.minute!)")
             
         } else if alarmType == "trafficAlarm" {
             let trafficAlarmContent = UNMutableNotificationContent()
@@ -32,12 +32,20 @@ struct NotificationHelper {
             trafficAlarmContent.subtitle = subtitle
             trafficAlarmContent.body = body
             trafficAlarmContent.sound = UNNotificationSound.init(named: soundName)
-            trafficAlarmContent.categoryIdentifier = "AalrmCategory"
+            trafficAlarmContent.categoryIdentifier = "AlarmCategory"
             let trigger = UNCalendarNotificationTrigger(dateMatching: alarmTimeComponents, repeats: false)
+            
             let request = UNNotificationRequest(identifier:
                 "trafficAlarmDone", content: trafficAlarmContent, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            print("notification is scheduled for \(alarmTimeComponents.hour!):\(alarmTimeComponents.minute!):")
+            UNUserNotificationCenter.current().add(request) { (error) in
+                
+                if let error = error {
+                    print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
+                }
+            }
+                
+            
+            print("notification is scheduled for \(alarmTimeComponents.hour!):\(alarmTimeComponents.minute!)")
         }
     }
 }

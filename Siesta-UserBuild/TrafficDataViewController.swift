@@ -37,27 +37,27 @@ class TrafficDataViewController: UIViewController {
     
     
     
-   func passDataFromAPI() {
-        
-        LocationService.durationTraffic(origin, destination, completion: { duration_in_traffic, distance, timeUnix in
-        self.estTimeTextLabel.text = duration_in_traffic
-        self.distanceTextLabel.text = distance
-        self.trafficDuration = timeUnix
-            print("print pass data from api traffic duration \(self.trafficDuration)")
-        self.convertUnixDateToTimeInterval(self.trafficDuration)
-        let wakeUpTime = self.calculateWakeUpTime()
-        let calendar = Calendar.current
-        let components = calendar.dateComponents(in: .current, from: wakeUpTime)
-        let currentDate = Date()
-        let currentDateComponents = calendar.dateComponents(in: .current, from: currentDate)
-        let trafficAlarmTimeComponents = DateComponents(calendar: calendar, timeZone: .current, month:
-            currentDateComponents.month, day: currentDateComponents.day, hour: components.hour, minute: components.minute)
-            
-        NotificationHelper.createNotification("trafficAlarm", "Wake Up", "You should wake up now", "You should wake up now to reach on time", "venus-isle-30", trafficAlarmTimeComponents)
-        })
-    
-    
-    }
+//   func passDataFromAPI() {
+//        
+//        LocationService.durationTraffic(origin, destination, completion: { duration_in_traffic, distance, timeUnix in
+//        self.estTimeTextLabel.text = duration_in_traffic
+//        self.distanceTextLabel.text = distance
+//        self.trafficDuration = timeUnix
+//            print("print pass data from api traffic duration \(self.trafficDuration)")
+//        self.convertUnixDateToTimeInterval(self.trafficDuration)
+//        let wakeUpTime = self.calculateWakeUpTime()
+//        let calendar = Calendar.current
+//        let components = calendar.dateComponents(in: .current, from: wakeUpTime)
+//        let currentDate = Date()
+//        let currentDateComponents = calendar.dateComponents(in: .current, from: currentDate)
+//        let trafficAlarmTimeComponents = DateComponents(calendar: calendar, timeZone: .current, month:
+//            currentDateComponents.month, day: currentDateComponents.day, hour: components.hour, minute: components.minute)
+//            
+//        NotificationHelper.createNotification("trafficAlarm", "Wake Up", "You should wake up now", "You should wake up now to reach on time", "venus-isle-30", trafficAlarmTimeComponents)
+//        })
+//    
+//    
+//    }
     
     
     
@@ -67,36 +67,38 @@ class TrafficDataViewController: UIViewController {
 
     }
     
-    func calculateWakeUpTime () -> Date {
-        
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "HH : mm"
-////        let readyTimeString = formatter.string(from: )
-        print("ready time: \(readyTime!)")
-        print("reach time: \(reachTime!)")
-        print("traffic time \(trafficDurationF!)")
-        
-        let wakeUpTime = TimeCalculationsHelper.calculateWakeUpTime(readyTime, trafficDurationF, reachTime)
-        return wakeUpTime
-    }
+//    func calculateWakeUpTime () -> Date {
+//        
+////        let formatter = DateFormatter()
+////        formatter.dateFormat = "HH : mm"
+//////        let readyTimeString = formatter.string(from: )
+//        print("ready time: \(readyTime!)")
+//        print("reach time: \(reachTime!)")
+//        print("traffic time \(trafficDurationF!)")
+//        
+//        let wakeUpTime = TimeCalculationsHelper.calculateWakeUpTime(readyTime, trafficDurationF, reachTime)
+//        return wakeUpTime
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toListAlarms" {
             let formatter = DateFormatter()
             formatter.dateFormat = "HH : mm"
+            
+            let newAlarm = CoreDataHelper.newAlarm()
             let calendar = Calendar.current
             let fromIntervalComponents = calendar.dateComponents(in: .current, from: fromAlarmTime!)
             let fromIntervalString = "\(fromIntervalComponents.hour!) : \(fromIntervalComponents.minute!)"
             let reachTimeComponents = calendar.dateComponents(in: .current, from: reachTime!)
             let reachTimeString = "\(reachTimeComponents.hour!) : \(reachTimeComponents.minute!)"
-            let newAlarm = CoreDataHelper.newAlarm()
+            
             newAlarm.origin = origin
             newAlarm.destination = destination
             newAlarm.fromInterval = (formatter.date(from: fromIntervalString)! as NSDate)
             newAlarm.readyTime = Int64(readyTime!)
             newAlarm.reachTime = (formatter.date(from: reachTimeString)! as NSDate)
             newAlarm.isOn = true
-            newAlarm.reachTimeString = reachTimeString
+            newAlarm.reachTimeString = "yes"
              CoreDataHelper.saveAlarm()
         }
     }
@@ -106,14 +108,7 @@ class TrafficDataViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view
-        passDataFromAPI()
-        
-        
-        
-        
-        
-        
-        
+//        passDataFromAPI()
         currentController = self
         
     }

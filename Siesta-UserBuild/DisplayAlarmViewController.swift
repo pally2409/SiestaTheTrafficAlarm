@@ -153,6 +153,9 @@ class DisplayAlarmViewController: UIViewController {
             print(readyTimeInDate!)
             let currentDate = Date()
             let calendar = Calendar.current
+            var reachTimeString = formatter.date(from: reachTimeTextField.text!)
+            
+
             if currentTZ.isDaylightSavingTime(for: currentDate) == true {
             readyTimeInDate = calendar.date(byAdding: .hour, value: -1, to: readyTimeInDate!)
             }
@@ -166,8 +169,7 @@ class DisplayAlarmViewController: UIViewController {
                let readyTimeInterval = readyTimeInDate?.timeIntervalSince(todayMidnight)
             
                 alarm.readyTime = Int64(readyTimeInterval!)
-                
-                let reachTimeString = formatter.date(from: reachTimeTextField.text!)
+                alarm.reachTimeString = "no"
                 alarm.reachTime = reachTimeString! as NSDate
                 let initialAlarmString = formatter.date(from: initialAlarmTextField.text!)
                 alarm.fromInterval = initialAlarmString! as NSDate
@@ -183,17 +185,24 @@ class DisplayAlarmViewController: UIViewController {
             var currentTimeDate = Date()
             var initialAlarmComponents = calendar.dateComponents(in: .current, from: initialAlarm)
             var helperComponents = calendar.dateComponents(in: .current, from: currentTimeDate)
-            initialAlarmComponents.day = helperComponents.day
-            initialAlarmComponents.month = helperComponents.month
-            initialAlarmComponents.year = helperComponents.year
-            initialAlarm = calendar.date(from: initialAlarmComponents)!
+            let newHelperComponents = DateComponents(calendar: calendar, timeZone: .current, year: helperComponents.year, month: helperComponents.month, day: helperComponents.day, hour: initialAlarmComponents.hour, minute: initialAlarmComponents.minute)
+            print("helper")
+            print(newHelperComponents)
+//            initialAlarmComponents.year = helperComponents.year
+//            initialAlarmComponents.day = helperComponents.day
+//            initialAlarmComponents.month = helperComponents.month
+            
+            initialAlarm = calendar.date(from: newHelperComponents)!
+            print(initialAlarmComponents)
+            
+            
+            
             if currentTimeDate > initialAlarm {
                 currentTimeDate = calendar.date(byAdding: .day, value: 1, to: currentTimeDate)!
                 
             }
             print("lol")
             print(currentTimeDate)
-            UIApplication.shared.cancelAllLocalNotifications()
             let currentTimeComponents = calendar.dateComponents(in: .current, from: currentTimeDate)
             
             initialAlarmComponents = calendar.dateComponents(in: .current, from: initialAlarm)
@@ -271,6 +280,7 @@ class DisplayAlarmViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit // set imageview's content mode
         self.navigationItem.titleView = imageView
         UIApplication.shared.statusBarStyle = .lightContent
+        currentController = self
     }
     
     
