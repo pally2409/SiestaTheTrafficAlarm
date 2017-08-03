@@ -223,7 +223,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
 
     
     func application(_ application: UIApplication, didReceive notification: UILocalNotification)
+        
     {
+        
+        
         if notification.category == "initialAalrmCategory"
         {
         passDataFromAPI()

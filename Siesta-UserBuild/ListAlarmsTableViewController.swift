@@ -50,10 +50,19 @@ class ListAlarmsTableViewController: UITableViewController {
             }
         }
 
+    
+    @IBAction func nightModeButtonTapped(sender: Any?) {
+        performSegue(withIdentifier: "nightModeOn", sender: self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let nightModeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        nightModeButton.setBackgroundImage(UIImage(named: "595-200"), for: .normal)
+        nightModeButton.addTarget(self, action: #selector(ListAlarmsTableViewController.nightModeButtonTapped), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: nightModeButton)
+                
         if UIApplication.shared.currentUserNotificationSettings?.types == .none {
             let controller = UIAlertController(title: "Notifications are disabled", message: "Please enable notifications to enable the alarm to ring", preferredStyle: .alert)
             

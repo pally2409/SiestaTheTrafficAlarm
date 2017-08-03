@@ -27,6 +27,7 @@
 		A77CA0D41F22AB3200409D34 /* DisplayAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CA0D31F22AB3200409D34 /* DisplayAlarmViewController.swift */; };
 		A7A4D9C91F25AF5A00D56CF9 /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */; };
 		A7BB5F5B1F3273C7008B563C /* InternetConnectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BB5F5A1F3273C7008B563C /* InternetConnectionHelper.swift */; };
+		A7BB5F5D1F33800F008B563C /* NightModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BB5F5C1F33800F008B563C /* NightModeViewController.swift */; };
 		A7F9D4431F292C9600C640F9 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */; };
 		A7F9D4631F2D772400C640F9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4621F2D772400C640F9 /* SearchViewController.swift */; };
 		A7F9D4671F2FB4DD00C640F9 /* ToolBarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4661F2FB4DD00C640F9 /* ToolBarHelper.swift */; };
@@ -56,6 +57,7 @@
 		A77CA0D31F22AB3200409D34 /* DisplayAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAlarmViewController.swift; sourceTree = "<group>"; };
 		A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
 		A7BB5F5A1F3273C7008B563C /* InternetConnectionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnectionHelper.swift; sourceTree = "<group>"; };
+		A7BB5F5C1F33800F008B563C /* NightModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightModeViewController.swift; sourceTree = "<group>"; };
 		A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		A7F9D4621F2D772400C640F9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A7F9D4661F2FB4DD00C640F9 /* ToolBarHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarHelper.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				A77CA0AD1F1D19AF00409D34 /* SetOtherInformationViewController.swift */,
 				A77CA0B61F1D53CB00409D34 /* LocationSettingsViewController.swift */,
 				A77CA0BF1F1E887B00409D34 /* TrafficDataViewController.swift */,
+				A7BB5F5C1F33800F008B563C /* NightModeViewController.swift */,
 				A77CA0D31F22AB3200409D34 /* DisplayAlarmViewController.swift */,
 				A7F9D4621F2D772400C640F9 /* SearchViewController.swift */,
 				A77CA0CB1F22989200409D34 /* ListAlarmsTableViewController.swift */,
@@ -330,6 +333,7 @@
 				A77CA0AE1F1D19AF00409D34 /* SetOtherInformationViewController.swift in Sources */,
 				A7F9D4671F2FB4DD00C640F9 /* ToolBarHelper.swift in Sources */,
 				A7A4D9C91F25AF5A00D56CF9 /* SetAlarmViewController.swift in Sources */,
+				A7BB5F5D1F33800F008B563C /* NightModeViewController.swift in Sources */,
 				A77CA0CC1F22989200409D34 /* ListAlarmsTableViewController.swift in Sources */,
 				A77CA0C71F22704600409D34 /* NotificationHelper.swift in Sources */,
 				A77CA0C41F211CF100409D34 /* TimeCalculationsHelper.swift in Sources */,
