@@ -57,6 +57,9 @@ class ListAlarmsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        AppUtility.lockOrientation(.portrait)
+        
 
         let nightModeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         nightModeButton.setBackgroundImage(UIImage(named: "595-200"), for: .normal)

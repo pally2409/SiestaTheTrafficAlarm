@@ -66,7 +66,7 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
             
             origPin.coordinate = originCoordinate
             mapView.addAnnotation(origPin)
-            origPin.title = "Orign"
+            origPin.title = "Origin"
             
             
         } else if sourceVC.flag == 1 {
@@ -189,7 +189,7 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.setHidesBackButton(true, animated: false)
         
         if CLLocationManager.locationServicesEnabled() {
             switch(CLLocationManager.authorizationStatus()) {

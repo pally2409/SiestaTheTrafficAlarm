@@ -37,27 +37,16 @@ class TrafficDataViewController: UIViewController {
     
     
     
-//   func passDataFromAPI() {
-//        
-//        LocationService.durationTraffic(origin, destination, completion: { duration_in_traffic, distance, timeUnix in
-//        self.estTimeTextLabel.text = duration_in_traffic
-//        self.distanceTextLabel.text = distance
-//        self.trafficDuration = timeUnix
-//            print("print pass data from api traffic duration \(self.trafficDuration)")
-//        self.convertUnixDateToTimeInterval(self.trafficDuration)
-//        let wakeUpTime = self.calculateWakeUpTime()
-//        let calendar = Calendar.current
-//        let components = calendar.dateComponents(in: .current, from: wakeUpTime)
-//        let currentDate = Date()
-//        let currentDateComponents = calendar.dateComponents(in: .current, from: currentDate)
-//        let trafficAlarmTimeComponents = DateComponents(calendar: calendar, timeZone: .current, month:
-//            currentDateComponents.month, day: currentDateComponents.day, hour: components.hour, minute: components.minute)
-//            
-//        NotificationHelper.createNotification("trafficAlarm", "Wake Up", "You should wake up now", "You should wake up now to reach on time", "venus-isle-30", trafficAlarmTimeComponents)
-//        })
-//    
-//    
-//    }
+   func passDataFromAPI() {
+        
+        LocationService.durationTraffic(origin, destination, completion: { duration_in_traffic, distance, timeUnix in
+        self.estTimeTextLabel.text = duration_in_traffic
+        self.distanceTextLabel.text = distance
+        
+        })
+    
+    
+    }
     
     
     
@@ -107,6 +96,8 @@ class TrafficDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        passDataFromAPI()
+        self.navigationItem.setHidesBackButton(true, animated: false)
         if InternetConnectionHelper.connectedToNetwork() == false {
         let controller = UIAlertController(title: "No Internet Connection", message: "You need internet connection to use this feature", preferredStyle: .alert)
         

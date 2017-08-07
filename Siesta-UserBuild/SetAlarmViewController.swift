@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class SetAlarmViewController: UIViewController, UNUserNotificationCenterDelegate {
+class SetAlarmViewController: UIViewController, UNUserNotificationCenterDelegate, UIGestureRecognizerDelegate {
     
     
     
@@ -57,10 +57,17 @@ class SetAlarmViewController: UIViewController, UNUserNotificationCenterDelegate
             
         }
     }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
+self.navigationItem.setHidesBackButton(true, animated: true)
         // Do any additional setup after loading the view.
+        
+        AppUtility.lockOrientation(.portrait)
         let logo = UIImage(named: "Group 4.png")
         let imageView = UIImageView(image: logo)
         imageView.contentMode = .scaleAspectFit // set imageview's content mode

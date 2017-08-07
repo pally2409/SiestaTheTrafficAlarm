@@ -28,6 +28,9 @@
 		A7A4D9C91F25AF5A00D56CF9 /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */; };
 		A7BB5F5B1F3273C7008B563C /* InternetConnectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BB5F5A1F3273C7008B563C /* InternetConnectionHelper.swift */; };
 		A7BB5F5D1F33800F008B563C /* NightModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BB5F5C1F33800F008B563C /* NightModeViewController.swift */; };
+		A7BB5F611F34527E008B563C /* DisplayAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BB5F601F34527E008B563C /* DisplayAlarmTableViewCell.swift */; };
+		A7BB5F631F351365008B563C /* PortraitModeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BB5F621F351365008B563C /* PortraitModeHelper.swift */; };
+		A7BB5F931F37DBB0008B563C /* Artboard 1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7BB5F921F37DBB0008B563C /* Artboard 1@3x.png */; };
 		A7F9D4431F292C9600C640F9 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */; };
 		A7F9D4631F2D772400C640F9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4621F2D772400C640F9 /* SearchViewController.swift */; };
 		A7F9D4671F2FB4DD00C640F9 /* ToolBarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9D4661F2FB4DD00C640F9 /* ToolBarHelper.swift */; };
@@ -58,6 +61,9 @@
 		A7A4D9C81F25AF5A00D56CF9 /* SetAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
 		A7BB5F5A1F3273C7008B563C /* InternetConnectionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnectionHelper.swift; sourceTree = "<group>"; };
 		A7BB5F5C1F33800F008B563C /* NightModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightModeViewController.swift; sourceTree = "<group>"; };
+		A7BB5F601F34527E008B563C /* DisplayAlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAlarmTableViewCell.swift; sourceTree = "<group>"; };
+		A7BB5F621F351365008B563C /* PortraitModeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortraitModeHelper.swift; sourceTree = "<group>"; };
+		A7BB5F921F37DBB0008B563C /* Artboard 1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Artboard 1@3x.png"; path = "../../../Siesta-Design-Part1/Siesta-Design-Part1/Assets.xcassets/Artboard 1.imageset/Artboard 1@3x.png"; sourceTree = "<group>"; };
 		A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		A7F9D4621F2D772400C640F9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A7F9D4661F2FB4DD00C640F9 /* ToolBarHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarHelper.swift; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 		A77CA0B91F1E87C700409D34 /* Stroyboards */ = {
 			isa = PBXGroup;
 			children = (
+				A7BB5F921F37DBB0008B563C /* Artboard 1@3x.png */,
 				A77CA09F1F1D162B00409D34 /* Main.storyboard */,
 				A77CA0A41F1D162B00409D34 /* LaunchScreen.storyboard */,
 			);
@@ -168,6 +175,7 @@
 				A714242F1F26B2830038392D /* CoreDataHelper.swift */,
 				A7F9D4421F292C9600C640F9 /* DateFormatterHelper.swift */,
 				A7BB5F5A1F3273C7008B563C /* InternetConnectionHelper.swift */,
+				A7BB5F621F351365008B563C /* PortraitModeHelper.swift */,
 				A77CA0C61F22704600409D34 /* NotificationHelper.swift */,
 				A7F9D4661F2FB4DD00C640F9 /* ToolBarHelper.swift */,
 			);
@@ -178,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				A77CA0CF1F229CE600409D34 /* ListAlarmsTableViewCell.swift */,
+				A7BB5F601F34527E008B563C /* DisplayAlarmTableViewCell.swift */,
 				A71424521F26C0920038392D /* Alarm.xcdatamodeld */,
 			);
 			name = Views;
@@ -233,7 +242,7 @@
 				TargetAttributes = {
 					A77CA0971F1D162B00409D34 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = K5G28H99SW;
+						DevelopmentTeam = D4G5DGEEY7;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -267,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A77CA0B01F1D204300409D34 /* tickle.mp3 in Resources */,
+				A7BB5F931F37DBB0008B563C /* Artboard 1@3x.png in Resources */,
 				A77CA0A61F1D162B00409D34 /* LaunchScreen.storyboard in Resources */,
 				A77CA0A31F1D162B00409D34 /* Assets.xcassets in Resources */,
 				A77CA0B21F1D231A00409D34 /* venus-isle-30.wav in Resources */,
@@ -330,7 +340,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A77CA0B71F1D53CB00409D34 /* LocationSettingsViewController.swift in Sources */,
+				A7BB5F631F351365008B563C /* PortraitModeHelper.swift in Sources */,
 				A77CA0AE1F1D19AF00409D34 /* SetOtherInformationViewController.swift in Sources */,
+				A7BB5F611F34527E008B563C /* DisplayAlarmTableViewCell.swift in Sources */,
 				A7F9D4671F2FB4DD00C640F9 /* ToolBarHelper.swift in Sources */,
 				A7A4D9C91F25AF5A00D56CF9 /* SetAlarmViewController.swift in Sources */,
 				A7BB5F5D1F33800F008B563C /* NightModeViewController.swift in Sources */,
@@ -470,13 +482,16 @@
 			baseConfigurationReference = F2E18BC077F9AEED1F710FD0 /* Pods-Siesta-UserBuild.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K5G28H99SW;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = D4G5DGEEY7;
 				INFOPLIST_FILE = "Siesta-UserBuild/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pallaksingh.Siesta-UserBuild";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pallaksingh.Siesta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -485,13 +500,16 @@
 			baseConfigurationReference = 485AFBB5003E172190111BF1 /* Pods-Siesta-UserBuild.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K5G28H99SW;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = D4G5DGEEY7;
 				INFOPLIST_FILE = "Siesta-UserBuild/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pallaksingh.Siesta-UserBuild";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pallaksingh.Siesta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

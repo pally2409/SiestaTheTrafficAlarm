@@ -9,10 +9,12 @@
 import UIKit
 import UserNotifications
 
-class DisplayAlarmViewController: UIViewController {
+class DisplayAlarmViewController: UIViewController{
     
     
-    //Locations
+   
+   
+       //Locations
     @IBOutlet weak var alarmOriginTextField: UITextField!
     @IBOutlet weak var alarmDestinationTextField: UITextField!
     
@@ -30,7 +32,12 @@ class DisplayAlarmViewController: UIViewController {
     var reachTimeDatePicker = UIDatePicker()
     @IBOutlet weak var reachTimeTextField: UITextField!
     
+    @IBOutlet weak var enableAlarmView: UIView!
+    @IBOutlet weak var setInitialAlarmView: UIView!
+    @IBOutlet weak var setReadyTimeView: UIView!
+    @IBOutlet weak var setReachTimeView: UIView!
 
+    @IBOutlet weak var setLocationView: UIView!
     @IBOutlet weak var alarmSwitch: UISwitch!
     var origin: String = " "
     var destination: String = " "
@@ -40,6 +47,20 @@ class DisplayAlarmViewController: UIViewController {
     var reachTime: Date?
     var alarm: Alarm?
     
+    
+    @IBAction func initialAlarmButtonTapped(_ sender: Any) {
+        initialAlarmTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func setReadyTimeButtonTapped(_ sender: Any) {
+        readyTimeTextField.becomeFirstResponder()
+    }
+    
+    
+    @IBAction func setReachTimeButtonTapped(_ sender: Any) {
+         reachTimeTextField.becomeFirstResponder()
+    }
+   
     
     //Datepicker Toolbars
     
@@ -261,7 +282,7 @@ class DisplayAlarmViewController: UIViewController {
             initialAlarmTextField.text = DateFormatterHelper.dateFormatter(date: alarm.fromInterval! as Date)
             readyTimeTextField.text = gmtFormatter.string(from: readyTimeInDate)
             reachTimeTextField.text = DateFormatterHelper.dateFormatter(date: alarm.reachTime! as Date)
-            
+        
         } else {
            
         }
@@ -271,6 +292,7 @@ class DisplayAlarmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+             self.navigationItem.setHidesBackButton(true, animated: false)   
         if InternetConnectionHelper.connectedToNetwork() == false {
         let controller = UIAlertController(title: "No Internet Connection", message: "You need internet connection to use this feature", preferredStyle: .alert)
         

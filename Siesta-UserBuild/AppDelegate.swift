@@ -21,6 +21,11 @@ var currentController: UIViewController!
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
     
+    var orientationLock = UIInterfaceOrientationMask.all
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return self.orientationLock
+    }
     
     var vc = ListAlarmsTableViewController()
     var backgroundSessionCompletionHandler: (() -> Void)?
@@ -226,25 +231,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
         
     {
         
+       
         
         if notification.category == "initialAalrmCategory"
         {
         passDataFromAPI()
             
+            
+            let alertSound = URL(fileURLWithPath: Bundle.main.path(forResource: "venus-isle-30", ofType: "wav")!)
+            print(alertSound)
+            
+            try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try! AVAudioSession.sharedInstance().setActive(true)
+            
+            try! audioPlayer = AVAudioPlayer(contentsOf: alertSound)
+            audioPlayer!.prepareToPlay()
+            audioPlayer!.play()
+            
+            let controller = UIAlertController(title: "Wake up", message: "Go back to sleep after opening the app", preferredStyle: .alert)
+            
+            controller.addAction(UIAlertAction(title: "I'm awake", style: .default, handler: { action in
+                self.audioPlayer?.stop()
+            }))
+            
+            if (currentController) != nil {
+                currentController.present(controller, animated: true, completion: nil)
+            }
+            else {
+                print("no current controller sorry")
+            
         }
-       //        self.audioPlayer?.stop()
-//        
-//        let alertSound = URL(fileURLWithPath: Bundle.main.path(forResource: "venus-isle-30", ofType: "wav")!)
-//        print(alertSound)
-//        
-//        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-//        try! AVAudioSession.sharedInstance().setActive(true)
-//        
-//        try! audioPlayer = AVAudioPlayer(contentsOf: alertSound)
-//        audioPlayer!.prepareToPlay()
-//        audioPlayer!.play()
+        }
+            
+            else  {
+            
         
-        let controller = UIAlertController(title: "test", message: "hello", preferredStyle: .alert)
+        let alertSound = URL(fileURLWithPath: Bundle.main.path(forResource: "venus-isle-30", ofType: "wav")!)
+        print(alertSound)
+        
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        try! AVAudioSession.sharedInstance().setActive(true)
+        
+        try! audioPlayer = AVAudioPlayer(contentsOf: alertSound)
+        audioPlayer!.prepareToPlay()
+        audioPlayer!.play()
+        
+        let controller = UIAlertController(title: "Wake Up", message: "You should wake up now", preferredStyle: .alert)
         
         controller.addAction(UIAlertAction(title: "option 1", style: .default, handler: { action in
             self.audioPlayer?.stop()
@@ -258,12 +290,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate {
             
         return
         
-        }
         
         
+            }
     
     }
 
 }
 
-
+}

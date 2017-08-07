@@ -51,7 +51,7 @@ class SetOtherInformationViewController: UIViewController, UNUserNotificationCen
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        self.navigationItem.setHidesBackButton(true, animated: false)
         let logo = UIImage(named: "Group 4.png")
         let imageView = UIImageView(image: logo)
         imageView.contentMode = .scaleAspectFit // set imageview's content mode
